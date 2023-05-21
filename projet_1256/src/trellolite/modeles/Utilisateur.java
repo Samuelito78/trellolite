@@ -10,7 +10,7 @@ public class Utilisateur {
 	//-----------------------------------------
 	// ATTRIBUTS
 	//-----------------------------------------
-	
+	//
 	ArrayList<Commentaire> commentaire;
 	public ArrayList<Reunion> reunion;
 	private double id;

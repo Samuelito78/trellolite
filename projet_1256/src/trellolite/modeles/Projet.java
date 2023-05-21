@@ -1,5 +1,9 @@
 package trellolite.modeles;
 import java.util.ArrayList;
+
+
+
+
 public class Projet {
     // Attributs
     ArrayList<Tableau> tableaux;
@@ -8,18 +12,31 @@ public class Projet {
     private String nom;
     private String type;
     private String description;
-    ArrayList<Utilisateur> admin;
 
-    // Constructeur
-    public Projet(String nom, String type, String description, ArrayList<Utilisateur> utilisateurs, ArrayList<Utilisateur> admin, ArrayList<Reunion> reunions, ArrayList<Tableau> tableaux) {
+    // Constructeurs
+    public Projet(String nom, String type, String description, ArrayList<Utilisateur> utilisateurs, ArrayList<Reunion> reunions, ArrayList<Tableau> tableaux) {
         this.setNom(nom);
         this.setDescription(description);
         this.setType(type);
         this.utilisateurs = utilisateurs;
-        this.admin = admin;
         this.reunions = reunions;
         this.tableaux = tableaux;
     }
+
+
+
+    public Projet(String nom, Utilisateur admin) {
+		this.nom = nom;
+		utilisateurs = new ArrayList<Utilisateur>();
+		utilisateurs.add(admin);
+		this.utilisateurs.get(0).setRole(Role.administrateur);
+		tableaux = new ArrayList<Tableau>();
+		tableaux.add(new Tableau());
+	}
+
+
+
+
 
     // Getter et Setter pour l'attribut "description"
     public String getDescription() {
@@ -61,10 +78,6 @@ public class Projet {
         return reunions;
     }
 
-    public ArrayList<Utilisateur> getAdmin() {
-        return admin;
-    }
-
 
     //---------------------------------------------
 	// 			   		METHODES
@@ -76,5 +89,31 @@ public class Projet {
 
     public void supprTableau(Tableau n_tab){
         tableaux.remove(n_tab);
+    }
+
+    public void ajouterReunion(Reunion n_reunion){
+		reunions.add(n_reunion);
+	}
+
+    public void supprReunion(Reunion n_reunion){
+        reunions.remove(n_reunion);
+    }
+
+    public void ajouterUser(Utilisateur n_user){
+		utilisateurs.add(n_user);
+	}
+
+	public void supprUser(Utilisateur n_user){
+		utilisateurs.remove(n_user);
+	}
+
+
+    //cherche qui est l'administrateur du projet
+    public Utilisateur admin() {
+        for (Utilisateur i : utilisateurs) {
+            if (i.getRole() == Role.administrateur)
+                return i;
+        }
+        return null;
     }
 }

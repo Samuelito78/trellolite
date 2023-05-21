@@ -26,6 +26,11 @@ public class Tableau {
 		this.tableau = tableau;
 	}
 
+	public Tableau(){
+		nom = "tableau_1";
+		description = "description vide";
+	}
+
 
 	//---------------------------------------------
 	// 			   GETTERS / SETTERS
