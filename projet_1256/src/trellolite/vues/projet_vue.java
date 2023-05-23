@@ -1,56 +1,38 @@
-package trellolite.vues;
+package trellolite.views;
 import javax.swing.*;
+import java.awt.*;
 
-public class projet_vue extends JPanel {
-	// D?larer les composants comme attributs
-	JLabel lLongeur ;
-	JTextField tLongeur ;
-	JLabel lLargeur ;
-	JTextField tLargeur ;
-	JLabel lResultat ;
-	JLabel lValeurResultat ; 
-	JButton bCalculer ;
-	JButton bNettoyer ;
-	
-	// Constructeur 
-	projet_vue() {
-		// Initialiser les composants
-		lLongeur = new JLabel ("Longueur :");
-		tLongeur = new JTextField (20); 
-		lLargeur = new JLabel ("Largeur :");
-		tLargeur = new JTextField (20); 
-		lResultat = new JLabel ("Resultat :");
-		lValeurResultat = new JLabel ("0");
-		bCalculer = new JButton ("Calculer");
-		bNettoyer = new JButton ("Nettoyer");
-		
-		// Ajouter ces composants dans 
-		// CE panneau p?imetre que je suis en train de construire
-		add (lLongeur);
-		add (tLongeur);
-		add (lLargeur);
-		add (tLargeur);
-		add (lResultat);
-		add (lValeurResultat);
-		add (bCalculer);
-		add (bNettoyer);
-	}
-	
-	// M?hode main
-	public static void main(String[] args) {
-		// Creer une fenetre
-		JFrame fenetre = new JFrame ("trelite");
-		fenetre.setSize (800, 800);
-		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+public class projet_vue extends JPanel 
+{
+public static void main(String[] args) {
+	// Crée une nouvelle JFrame
+	JFrame frame = new JFrame("Trelite");
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	frame.setSize(1000, 600); // définit la taille de la fenêtre
 
-		// Cr?r une instance de MA classe graphique
-		projet_vue panneauPerimetre = new projet_vue () ;
-		
-		// Ajouter le panneau dans la fenetre
-		fenetre.add(panneauPerimetre);
+	// Crée le bandeau latéral
+	JPanel sidebar = new JPanel();
+	sidebar.setBackground(Color.GRAY); // définit la couleur de fond
+	sidebar.setPreferredSize(new Dimension(200, 600)); // définit la taille
 
-		// Afficher la fenetre
-		fenetre.setVisible(true);
+	// Ajoute le bandeau latéral à la JFrame
+	frame.getContentPane().add(sidebar, BorderLayout.WEST);
 
+	// Crée un JPanel principal
+	JPanel mainPanel = new JPanel();
+	mainPanel.setBackground(Color.WHITE); // définit la couleur de fond
+
+	// Crée un nouveau JButton
+	JButton button = new JButton("Nouveau Tableau");
+	button.setBounds(1000, 60, 50, 50); // définit la position et la taille du bouton
+
+	// Ajoute le bouton au JPanel principal
+	mainPanel.add(button);
+
+	// Ajoute le JPanel principal à la JFrame
+	frame.getContentPane().add(mainPanel, BorderLayout.CENTER);
+
+	// Affiche la fenêtre
+	frame.setVisible(true);
 	}
 }

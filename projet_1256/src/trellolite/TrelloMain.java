@@ -90,7 +90,7 @@ public class TrelloMain {
 
         // Vérification des éléments ajoutés
         System.out.println("Nombre de commentaires de l'utilisateur: " + user1.getComm().size());
-        System.out.println("Nom de l'utilisateur 1: " + user1.getNom() + ", pr�nom de l'utilisateur 1: " + user1.getPrenom());
+        System.out.println("Nom de l'utilisateur 1: " + user1.getNom() + " prénom de l'utilisateur 1: " + user1.getPrenom());
         System.out.println("Nombre de réunions de l'utilisateur 1: " + user1.getReunion().size());
         System.out.println("Nombre d'étiquettes de la carte 1: " + carte1.getEtiquettes().size());
         System.out.println("Nombre de commentaires de la carte 1: " + carte1.getComm().size());
