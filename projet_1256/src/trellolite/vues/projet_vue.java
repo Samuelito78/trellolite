@@ -1,4 +1,4 @@
-package trellolite.views;
+package trellolite.vues;
 import javax.swing.*;
 import java.awt.*;
 
