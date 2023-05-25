@@ -1,12 +1,12 @@
 package trellolite;
-import trellolite.modeles.*;
-
-import java.awt.*;
+import java.awt.Dimension;
 import java.util.ArrayList;
-
-import javax.swing.*;
-
+import javax.swing.JFrame;
+import trellolite.modeles.*;
 import trellolite.vues.PrincipaleVue;
+import trellolite.controleurs.PrincipaleControleur;
+
+
 /*
  * @auteur Samuel Boix-Segura
  */
@@ -15,6 +15,7 @@ import trellolite.vues.PrincipaleVue;
 
 public class TrelloMain {
     public static void main(String[] args) {
+        /*
         // Création des Utilisateurs
         Utilisateur user1 = new Utilisateur(1,"Monkey D", "Luffy", "mugiwara@onepiece.com", "password", Role.membre, new ArrayList<>(), new ArrayList<>());
         Utilisateur user2 = new Utilisateur(2,"Portgas D", "Ace", "musuko@free.fr", "password", Role.administrateur, new ArrayList<>(), new ArrayList<>());
@@ -105,24 +106,20 @@ public class TrelloMain {
         System.out.println("Administrateur du projet 1: " + projet1.admin());
         System.out.println("Nombre de réunions du projet 1: " + projet1.getReunions().size());
         System.out.println("Nombre de utilisateurs de la réunion 1: " + reunion1.getUtilisateurs().size());
+*/
+        // Créer le controleur, qui crée aussi la vue
+        Principale modele = new Principale();
+        PrincipaleControleur controleur = new PrincipaleControleur(modele);
+        PrincipaleVue panel = controleur.getVue();
 
-        PrincipaleVue panel = new PrincipaleVue();
-
-        //Créer une fenêtre
         JFrame fenetre = new JFrame("Ma Fenetre Swing");
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fenetre.setSize(1000, 600); // définit la taille de la fenêtre
-        //Ajouter le panel à la fenêtre
+        fenetre.setSize(1000, 600);
         fenetre.setMinimumSize(new Dimension(1000, 600));
         fenetre.add(panel);
-
-        //Régler la taille de la fenêtre en fonction de la taille préférée du panel
         fenetre.pack();
-
-        //Positionner la fenêtre au centre de l'écran
         fenetre.setLocationRelativeTo(null);
-
-        //Rendre la fenêtre visible
         fenetre.setVisible(true);
+
     }
 }
