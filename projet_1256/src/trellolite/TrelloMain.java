@@ -1,7 +1,7 @@
 package trellolite;
 import trellolite.modeles.*;
 
-import java.awt.Frame;
+import java.awt.*;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -106,22 +106,23 @@ public class TrelloMain {
         System.out.println("Nombre de réunions du projet 1: " + projet1.getReunions().size());
         System.out.println("Nombre de utilisateurs de la réunion 1: " + reunion1.getUtilisateurs().size());
 
-        PrincipaleVue myPanel = new PrincipaleVue();
+        PrincipaleVue panel = new PrincipaleVue();
 
         //Créer une fenêtre
-        JFrame myWindow = new JFrame("Ma Fenetre Swing");
-        myWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        JFrame fenetre = new JFrame("Ma Fenetre Swing");
+        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        fenetre.setSize(1000, 600); // définit la taille de la fenêtre
         //Ajouter le panel à la fenêtre
-        myWindow.add(myPanel);
+        fenetre.setMinimumSize(new Dimension(1000, 600));
+        fenetre.add(panel);
 
         //Régler la taille de la fenêtre en fonction de la taille préférée du panel
-        myWindow.pack();
+        fenetre.pack();
 
         //Positionner la fenêtre au centre de l'écran
-        myWindow.setLocationRelativeTo(null);
+        fenetre.setLocationRelativeTo(null);
 
         //Rendre la fenêtre visible
-        myWindow.setVisible(true);
+        fenetre.setVisible(true);
     }
 }
