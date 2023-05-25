@@ -22,8 +22,15 @@ public class Projet {
         this.reunions = reunions;
         this.tableaux = tableaux;
     }
-
-
+ // Constructeur temporaire test
+    public Projet(String nom, String type, String description) {
+        this.setNom(nom);
+        this.setDescription(description);
+        this.setType(type);
+        this.utilisateurs = utilisateurs;
+        this.reunions = reunions;
+        this.tableaux = tableaux;
+    }
 
     public Projet(String nom, Utilisateur admin) {
 		this.nom = nom;
@@ -33,8 +40,6 @@ public class Projet {
 		tableaux = new ArrayList<Tableau>();
 		tableaux.add(new Tableau());
 	}
-
-
 
 
 
