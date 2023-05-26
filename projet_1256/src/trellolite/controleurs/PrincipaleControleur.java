@@ -4,18 +4,21 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import trellolite.vues.PrincipaleVue;
 import trellolite.modeles.*;
+import trellolite.controleurs.ProjetControleur;
 public class PrincipaleControleur {
     private PrincipaleVue vue;
     private Principale modele;
     private JButton monBouton;
     private JButton submitButton;
+    private ProjetControleur controleurProjet;
+
 
     public PrincipaleControleur(Principale modele) {
         this.modele = modele;
         this.vue = new PrincipaleVue();
 
         // Création des boutons
-        monBouton = new JButton("Mon Bouton");
+        monBouton = new JButton("Crée un projet");
         submitButton = new JButton("Créer le projet");
 
         monBouton.addActionListener(new ActionListener() {
@@ -34,7 +37,9 @@ public class PrincipaleControleur {
                 System.out.println(nom +" " + type +" "+ description);
                 modele.addProjet(projet);
 
-                vue.showMainView(monBouton);
+                controleurProjet = new ProjetControleur(projet);
+                vue.showProjetView(controleurProjet.getVue());
+
             }
         });
 

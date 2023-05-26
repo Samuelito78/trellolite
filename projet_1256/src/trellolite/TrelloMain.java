@@ -112,7 +112,7 @@ public class TrelloMain {
         PrincipaleControleur controleur = new PrincipaleControleur(modele);
         PrincipaleVue panel = controleur.getVue();
 
-        JFrame fenetre = new JFrame("Ma Fenetre Swing");
+        JFrame fenetre = new JFrame("Trelite");
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenetre.setSize(1000, 600);
         fenetre.setMinimumSize(new Dimension(1000, 600));

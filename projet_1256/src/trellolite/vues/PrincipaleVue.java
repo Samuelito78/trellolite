@@ -1,10 +1,14 @@
 package trellolite.vues;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
 import trellolite.modeles.*;
 import java.awt.*;
 
 public class PrincipaleVue extends JPanel {
+    private JPanel sidebar;
+
     private JPanel formPanel;
 
     // Les composants du formulaire
@@ -13,6 +17,13 @@ public class PrincipaleVue extends JPanel {
     private JTextArea descriptionArea;
 
     public PrincipaleVue() {
+        // Create a sidebar
+        sidebar = new JPanel(new BorderLayout());
+        sidebar.setPreferredSize(new Dimension(260, 0));
+        sidebar.setBackground(Color.BLUE);
+
+
+
         // Création du formulaire
         formPanel = new JPanel(new GridLayout(0, 1));
         nomField = new JTextField(10);
@@ -49,9 +60,25 @@ public class PrincipaleVue extends JPanel {
 
     public void showMainView(JButton monBouton) {
         this.removeAll();
+        this.add(new JLabel("Oups ! Vous n'avez pas encore de projet."));
         this.add(monBouton);
         this.revalidate();
         this.repaint();
     }
+
+    public void showProjetView(ProjetVue vueProjet) {
+        this.removeAll();
+        this.setLayout(new BorderLayout());
+        vueProjet.setBorder(new EmptyBorder(15, 15, 15, 15));
+        // Add a vertical glue that will push all subsequent components to the bottom
+        this.add(sidebar, BorderLayout.WEST);
+        // Add the box to the sidebar
+        vueProjet.setBackground(Color.YELLOW);
+        sidebar.add(vueProjet, BorderLayout.SOUTH);
+        this.revalidate();
+        this.repaint();
+    }
+
+
 }
 
