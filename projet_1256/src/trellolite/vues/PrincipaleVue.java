@@ -66,15 +66,10 @@ public class PrincipaleVue extends JPanel {
         this.repaint();
     }
 
-    public void showProjetView(ProjetVue vueProjet) {
+    public void showProjetView(JPanel navBarVue) {
         this.removeAll();
         this.setLayout(new BorderLayout());
-        vueProjet.setBorder(new EmptyBorder(15, 15, 15, 15));
-        // Add a vertical glue that will push all subsequent components to the bottom
-        this.add(sidebar, BorderLayout.WEST);
-        // Add the box to the sidebar
-        vueProjet.setBackground(Color.YELLOW);
-        sidebar.add(vueProjet, BorderLayout.SOUTH);
+        this.add(navBarVue, BorderLayout.WEST);
         this.revalidate();
         this.repaint();
     }

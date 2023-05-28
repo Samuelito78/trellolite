@@ -11,7 +11,7 @@ public class PrincipaleControleur {
     private JButton monBouton;
     private JButton submitButton;
     private ProjetControleur controleurProjet;
-
+    private NavBarControleur controleurNavBar;
 
     public PrincipaleControleur(Principale modele) {
         this.modele = modele;
@@ -32,13 +32,12 @@ public class PrincipaleControleur {
                 String nom = vue.getNom();
                 String type = vue.getType();
                 String description = vue.getDescription();
-
                 Projet projet = new Projet(nom, type, description);
                 System.out.println(nom +" " + type +" "+ description);
                 modele.addProjet(projet);
-
                 controleurProjet = new ProjetControleur(projet);
-                vue.showProjetView(controleurProjet.getVue());
+                controleurNavBar = new NavBarControleur(controleurProjet.getVue());
+                vue.showProjetView(controleurNavBar.getVue());
 
             }
         });
