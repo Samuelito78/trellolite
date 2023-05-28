@@ -7,6 +7,7 @@ import trellolite.modeles.NavButton;
 import trellolite.modeles.Projet;
 import trellolite.vues.NavButtonVue;
 import trellolite.vues.ProjetVue;
+import trellolite.vues.SectionVue;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,7 +17,9 @@ import java.util.ArrayList;
 public class NavButtonControleur {
     private NavButtonVue navButtonVue;
     private NavBar navBar;
-    NavButtonControleur(NavBar navBar){
+    private SectionVue sectionVue;
+    NavButtonControleur(NavBar navBar, SectionVue sectionVue){
+        this.sectionVue = sectionVue;
         this.navBar = navBar;
         ArrayList<JButton> navButtonsList = new ArrayList<>();
         ArrayList<NavButton> navButtons = navBar.getButtons();
@@ -54,9 +57,33 @@ public class NavButtonControleur {
                             otherBtn.setBackground(Color.GRAY);
                         }
                     }
+
+                    switch (button.getName()) {
+                        case "Tableau de bord":
+                            sectionVue.afficheTableaux();
+                            break;
+                        case "Activité":
+                            sectionVue.afficheActivites();
+                            break;
+                        case "Membres":
+                            sectionVue.afficheMembres();
+                            break;
+                        case "Réunions":
+                            sectionVue.afficheReunions();
+                            break;
+                        case "Paramètres":
+                            sectionVue.afficheParamètres();
+                            break;
+                        // Autres cas possibles
+                        default:
+                            // Instructions à exécuter si expression ne correspond à aucun des cas précédents
+                            break;
+                    }
                 }
             });
             navButtonsList.add(btn);
+            sectionVue.afficheTableaux();
+
         }
 
         this.navButtonVue = new NavButtonVue(navButtonsList);

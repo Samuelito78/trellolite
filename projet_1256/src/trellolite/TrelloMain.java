@@ -1,7 +1,8 @@
 package trellolite;
-import java.awt.Dimension;
+import java.awt.*;
 import java.util.ArrayList;
-import javax.swing.JFrame;
+import javax.swing.*;
+
 import trellolite.modeles.*;
 import trellolite.vues.PrincipaleVue;
 import trellolite.controleurs.PrincipaleControleur;
@@ -119,6 +120,8 @@ public class TrelloMain {
         fenetre.add(panel);
         fenetre.pack();
         fenetre.setLocationRelativeTo(null);
+        fenetre.setBackground(Color.BLACK);
+
         fenetre.setVisible(true);
 
     }

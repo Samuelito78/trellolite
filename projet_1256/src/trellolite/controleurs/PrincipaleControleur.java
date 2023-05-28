@@ -5,9 +5,12 @@ import javax.swing.*;
 import trellolite.vues.PrincipaleVue;
 import trellolite.modeles.*;
 import trellolite.controleurs.ProjetControleur;
+import trellolite.vues.SectionVue;
+
 public class PrincipaleControleur {
     private PrincipaleVue vue;
     private Principale modele;
+    private SectionVue sectionVue;
     private JButton monBouton;
     private JButton submitButton;
     private ProjetControleur controleurProjet;
@@ -35,10 +38,16 @@ public class PrincipaleControleur {
                 Projet projet = new Projet(nom, type, description);
                 System.out.println(nom +" " + type +" "+ description);
                 modele.addProjet(projet);
-                controleurProjet = new ProjetControleur(projet);
-                controleurNavBar = new NavBarControleur(controleurProjet.getVue());
-                vue.showProjetView(controleurNavBar.getVue());
 
+                sectionVue = new SectionVue();
+
+
+                controleurProjet = new ProjetControleur(projet);
+                controleurNavBar = new NavBarControleur(controleurProjet.getVue(), sectionVue);
+
+
+                vue.showNavBar(controleurNavBar.getVue());
+                vue.showSection(sectionVue);
             }
         });
 

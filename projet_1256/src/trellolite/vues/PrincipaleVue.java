@@ -66,7 +66,7 @@ public class PrincipaleVue extends JPanel {
         this.repaint();
     }
 
-    public void showProjetView(JPanel navBarVue) {
+    public void showNavBar(JPanel navBarVue) {
         this.removeAll();
         this.setLayout(new BorderLayout());
         this.add(navBarVue, BorderLayout.WEST);
@@ -74,6 +74,9 @@ public class PrincipaleVue extends JPanel {
         this.repaint();
     }
 
+    public void showSection(JPanel sectionVue) {
+        this.add(sectionVue);
+    }
 
 }
 

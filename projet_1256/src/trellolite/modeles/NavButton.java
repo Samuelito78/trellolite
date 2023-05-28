@@ -13,6 +13,12 @@ public class NavButton {
         this.isSelected = false; // par défaut, le bouton n'est pas sélectionné
     }
 
+    public NavButton(String name, String iconURL, boolean isSelected) {
+        this.name = name;
+        this.iconURL = iconURL;
+        this.isSelected = isSelected; // par défaut, le bouton n'est pas sélectionné
+    }
+
     // Getters et setters pour chaque attribut
 
     public String getName() {

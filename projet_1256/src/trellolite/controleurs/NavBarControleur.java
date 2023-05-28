@@ -5,6 +5,7 @@ import trellolite.vues.NavBarVue;
 
 import trellolite.vues.PrincipaleVue;
 import trellolite.vues.ProjetVue;
+import trellolite.vues.SectionVue;
 
 import javax.swing.*;
 
@@ -13,12 +14,12 @@ public class NavBarControleur {
     private NavBarVue navBarVue;
     private ProjetVue projetVue;
     private NavButtonControleur navButtonControleur;
-    public NavBarControleur(ProjetVue projetVue){
+    public NavBarControleur(ProjetVue projetVue, SectionVue sectionVue){
         this.projetVue = projetVue;
         navBar = new NavBar();
-        NavButton navButton1 = new NavButton("Tableau de bord", "");
+        NavButton navButton1 = new NavButton("Tableau de bord", "", true);
         NavButton navButton2 = new NavButton("Activité", "");
-        NavButton navButton3 = new NavButton("Membre", "");
+        NavButton navButton3 = new NavButton("Membres", "");
         NavButton navButton4 = new NavButton("Réunions", "");
         NavButton navButton5 = new NavButton("Paramètres", "");
         navBar.addButton(navButton1);
@@ -26,15 +27,12 @@ public class NavBarControleur {
         navBar.addButton(navButton3);
         navBar.addButton(navButton4);
         navBar.addButton(navButton5);
-        navButtonControleur = new NavButtonControleur(navBar);
-        this.navBarVue = new NavBarVue(projetVue.getProjectButton(), navButtonControleur.getVue().getNavButtonPannel());
-
-
-
+        navButtonControleur = new NavButtonControleur(navBar, sectionVue);
+        this.navBarVue = new NavBarVue(projetVue, navButtonControleur.getVue());
 
     }
 
     public JPanel getVue() {
-        return this.navBarVue.getNavBar();
+        return this.navBarVue;
     }
 }
