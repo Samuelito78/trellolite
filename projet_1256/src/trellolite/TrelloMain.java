@@ -120,7 +120,7 @@ public class TrelloMain {
         fenetre.add(panel);
         fenetre.pack();
         fenetre.setLocationRelativeTo(null);
-        fenetre.setBackground(Color.BLACK);
+        fenetre.setBackground(Color.decode("#252526"));
 
         fenetre.setVisible(true);
 

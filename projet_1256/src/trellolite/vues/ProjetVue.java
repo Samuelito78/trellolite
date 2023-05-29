@@ -8,7 +8,7 @@ public class ProjetVue extends JPanel{
     private JButton projectButton;
     public ProjetVue(JButton projectButton) {
         setLayout(new BorderLayout());
-        setBackground(Color.GREEN);
+        setBackground(Color.decode("#252526"));
         add(projectButton);
     }
 

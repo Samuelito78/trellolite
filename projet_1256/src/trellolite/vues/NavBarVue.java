@@ -13,7 +13,7 @@ public class NavBarVue extends JPanel{
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(260, 0));
-        setBackground(Color.PINK);
+        setBackground(Color.decode("#252526"));
         add(projectButton, BorderLayout.SOUTH);
 
         JLabel label = new JLabel(resizedIcon);

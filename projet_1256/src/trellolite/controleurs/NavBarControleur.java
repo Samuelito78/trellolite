@@ -17,11 +17,11 @@ public class NavBarControleur {
     public NavBarControleur(ProjetVue projetVue, SectionVue sectionVue){
         this.projetVue = projetVue;
         navBar = new NavBar();
-        NavButton navButton1 = new NavButton("Tableau de bord", "", true);
-        NavButton navButton2 = new NavButton("Activité", "");
-        NavButton navButton3 = new NavButton("Membres", "");
-        NavButton navButton4 = new NavButton("Réunions", "");
-        NavButton navButton5 = new NavButton("Paramètres", "");
+        NavButton navButton1 = new NavButton("Tableau de bord", "src/trellolite/ressources/images/iconTable.png", true);
+        NavButton navButton2 = new NavButton("Activité", "src/trellolite/ressources/images/iconReturn.png");
+        NavButton navButton3 = new NavButton("Membres", "src/trellolite/ressources/images/iconUsers.png");
+        NavButton navButton4 = new NavButton("Réunions", "src/trellolite/ressources/images/iconMic.png");
+        NavButton navButton5 = new NavButton("Paramètres", "src/trellolite/ressources/images/iconGear.png");
         navBar.addButton(navButton1);
         navBar.addButton(navButton2);
         navBar.addButton(navButton3);

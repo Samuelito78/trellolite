@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class NavButtonVue extends JPanel {
     public NavButtonVue(ArrayList<JButton> navButtons){
-        setBackground(Color.GRAY);
+        setBackground(Color.decode("#252526"));
         for (JButton button : navButtons) {
             add(button);
         }
