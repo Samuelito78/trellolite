@@ -58,12 +58,13 @@ public class ReunionControleur {
                 int indexCouleur = 0;
 
                 for (Reunion reunion : projet.getReunions()) {
-                    JButton reunionBtn = new JButton("<html><b>"+reunion.getNom()+"</b><html>");
-                    reunionBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
+                    JButton reunionBtn = new JButton("<html><span style='font-size:11px'><b>"+reunion.getNom()+"</b></span><html>");
+                    reunionBtn.setBorder(new EmptyBorder(0, 10, 20, 0));
                     reunionBtn.setBackground(Color.decode(couleurs[indexCouleur]));
                     reunionBtn.setForeground(Color.WHITE);
                     reunionBtn.setMargin(new Insets(10, 10, 10, 10)); // Définir une marge autour du texte du bouton
                     reunionBtn.setHorizontalAlignment(SwingConstants.LEFT); // Aligner le texte à gauche
+                    reunionBtn.setVerticalAlignment(SwingConstants.BOTTOM);
                     reunionBtn.setOpaque(true);
                     reunionBtnList.add(reunionBtn);
 

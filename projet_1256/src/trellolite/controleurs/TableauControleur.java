@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class TableauControleur {
@@ -60,20 +62,55 @@ public class TableauControleur {
                 int indexCouleur = 0;
 
                 for (Tableau tableau : projet.getTableaux()) {
-                    JButton tableauBtn = new JButton("<html><b>"+tableau.getNom()+"</b><html>");
-                    tableauBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
+                    // Creation et personalisation du bouton
+                    JButton tableauBtn = new JButton("<html><span style='font-size:11px'><b>"+tableau.getNom()+"</b></span><html>");
+                    tableauBtn.setBorder(new EmptyBorder(0, 10, 20, 0));
                     tableauBtn.setBackground(Color.decode(couleurs[indexCouleur]));
                     tableauBtn.setForeground(Color.WHITE);
                     tableauBtn.setMargin(new Insets(10, 10, 10, 10)); // Définir une marge autour du texte du bouton
                     tableauBtn.setHorizontalAlignment(SwingConstants.LEFT); // Aligner le texte à gauche
+                    tableauBtn.setVerticalAlignment(SwingConstants.BOTTOM);
                     tableauBtn.setOpaque(true);
-                    tableauBtnList.add(tableauBtn);
 
+                    // Créer un menu contextuel
+                    JPopupMenu popupMenu = new JPopupMenu();
+                    popupMenu.setBackground(Color.black);
+
+                    // Ajouter une option de suppression au menu contextuel
+                    JMenuItem deleteItem = new JMenuItem("Supprimer le tableau");
+                    deleteItem.setBackground(Color.red);
+                    deleteItem.setForeground(Color.white);
+                    deleteItem.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            // Logique pour supprimer le tableau du projet
+                            projet.supprTableau(tableau);
+
+                            // Supprimer le bouton correspondant à ce tableau de la liste tableauBtnList
+                            tableauBtnList.remove(tableauBtn);
+
+                            // Actualiser l'interface utilisateur pour refléter la suppression du tableau
+                            tableauVue.refreshPage(tableauBtnList);
+                        }
+                    });
+
+                    popupMenu.add(deleteItem);
+
+                    // Ajouter un MouseListener à tableauBtn pour afficher le menu contextuel lors d'un clic droit
+                    tableauBtn.addMouseListener(new MouseAdapter() {
+                        public void mousePressed(MouseEvent me) {
+                            if (SwingUtilities.isRightMouseButton(me)) {
+                                popupMenu.show(me.getComponent(), me.getX(), me.getY());
+                            }
+                        }
+                    });
+
+                    tableauBtnList.add(tableauBtn);
                     indexCouleur++;
                     if (indexCouleur >= couleurs.length) { // Si nous avons utilisé toutes les couleurs, recommençons depuis le début
                         indexCouleur = 0;
                     }
                 }
+
                 tableauVue.refreshPage(tableauBtnList);
                 dialog.dispose();
             }
