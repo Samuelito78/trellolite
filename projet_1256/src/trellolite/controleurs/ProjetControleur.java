@@ -40,10 +40,14 @@ public class ProjetControleur {
         this.vue.setProjet(projet);
     }
 
-    private static ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
+    private ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
         Image img = icon.getImage();
         Image resizedImage = img.getScaledInstance(width, height,  java.awt.Image.SCALE_SMOOTH);
         return new ImageIcon(resizedImage);
+    }
+
+    public Projet getProjet(){
+        return this.projet;
     }
 
     public ProjetVue getVue() {

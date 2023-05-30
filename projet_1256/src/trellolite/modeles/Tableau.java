@@ -6,31 +6,28 @@ public class Tableau {
 	// ATTRIBUTS
 	//-----------------------------------------
 
-	ArrayList<Liste> liste;
-	Projet tableau;
+	private ArrayList<Liste> liste;
+	private Projet projet;
 	private String nom;
-	private String description;
-	private int datedebut;
-	private int datefin;
-	
+
 	//--------------------------------------------
 	// 				 CONSTRUCTEUR
 	//--------------------------------------------
 
-	public Tableau(String nom, String description, int datedebut, int datefin, ArrayList<Liste> liste, Projet tableau) {
+	public Tableau(String nom, ArrayList<Liste> liste, Projet projet) {
 		this.setNom(nom);
-		this.setDescription(description);
-		this.setDatedebut(datedebut);
-		this.setDatefin(datefin);
 		this.liste=liste;
-		this.tableau = tableau;
+		this.projet = projet;
+	}
+
+	public Tableau(String nom, Projet projet){
+		this.setNom(nom);
+		this.projet = projet;
 	}
 
 	public Tableau(){
 		nom = "tableau_1";
-		description = "description vide";
 	}
-
 
 	//---------------------------------------------
 	// 			   GETTERS / SETTERS
@@ -40,30 +37,6 @@ public class Tableau {
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
-	}
-
-	
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	
-	public int getDatedebut() {
-		return datedebut;
-	}
-	public void setDatedebut(int datedebut) {
-		this.datedebut = datedebut;
-	}
-
-	
-	public int getDatefin() {
-		return datefin;
-	}
-	public void setDatefin(int datefin) {
-		this.datefin = datefin;
 	}
 
 

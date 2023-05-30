@@ -14,15 +14,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+
+
 public class NavButtonControleur {
     private NavButtonVue navButtonVue;
     private NavBar navBar;
     private SectionVue sectionVue;
-    NavButtonControleur(NavBar navBar, SectionVue sectionVue){
+    NavButtonControleur(NavBar navBar, SectionVue sectionVue, Projet projet){
         this.sectionVue = sectionVue;
         this.navBar = navBar;
         ArrayList<JButton> navButtonsList = new ArrayList<>();
         ArrayList<NavButton> navButtons = navBar.getButtons();
+
+        TableauControleur tableauControleur = new TableauControleur(projet);
+
 
         for (NavButton button : navButtons) {
             System.out.println(button.getName());
@@ -67,7 +72,7 @@ public class NavButtonControleur {
 
                     switch (button.getName()) {
                         case "Tableau de bord":
-                            sectionVue.afficheTableaux();
+                            sectionVue.afficheTableaux(tableauControleur.getCreeTableauBtn());
                             break;
                         case "Activité":
                             sectionVue.afficheActivites();
@@ -89,13 +94,10 @@ public class NavButtonControleur {
                 }
             });
             navButtonsList.add(btn);
-            sectionVue.afficheTableaux();
-
+            sectionVue.afficheTableaux(tableauControleur.getCreeTableauBtn());
         }
-
         this.navButtonVue = new NavButtonVue(navButtonsList);
     }
-
     public NavButtonVue getVue() {
         return this.navButtonVue;
     }

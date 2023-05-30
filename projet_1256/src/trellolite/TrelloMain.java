@@ -116,13 +116,11 @@ public class TrelloMain {
         JFrame fenetre = new JFrame("Trelite");
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenetre.setSize(1000, 600);
-        fenetre.setMinimumSize(new Dimension(1000, 600));
+        fenetre.setMinimumSize(new Dimension(1240, 700));
         fenetre.add(panel);
         fenetre.pack();
         fenetre.setLocationRelativeTo(null);
         fenetre.setBackground(Color.decode("#252526"));
-
         fenetre.setVisible(true);
-
     }
 }
