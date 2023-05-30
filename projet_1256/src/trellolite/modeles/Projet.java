@@ -27,6 +27,7 @@ public class Projet {
         this.setDescription(description);
         this.setType(type);
         this.tableaux = new ArrayList<>();
+        this.reunions = new ArrayList<>();
     }
 
     public Projet(String nom, Utilisateur admin) {

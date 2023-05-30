@@ -19,7 +19,7 @@ public class TableauVue extends JPanel {
 
     private JTextField nomTableauField;
     // Constructeur de la classe TableauVue
-    public TableauVue(JButton creeTableauBtn, ArrayList<JButton> tableauBtnList){
+    public TableauVue(JButton creeTableauBtn, ArrayList<JButton> reunionBtnList){
         // Configuration du layout et de la couleur de fond de ce JPanel
         setLayout(new BorderLayout());
         setOpaque(false);
@@ -73,7 +73,6 @@ public class TableauVue extends JPanel {
         gbcTableauPanel.gridy = 1; // Ajouter tableauPanel en dessous de subttitlePanel
         gbcTableauPanel.weightx = 1.0;
         gbcTableauPanel.weighty = 1.0;
-
         bodyPanel.add(tableauPanel, gbcTableauPanel);
 
         // Création d'un nouveau JPanel pour le bouton
@@ -106,6 +105,11 @@ public class TableauVue extends JPanel {
 
         for (JButton tableauBtn : tableauBtnList) {
             tableauPanel.add(tableauBtn);
+        }
+        for (int k=0; k<8;k++) {
+            JPanel PanelVide = new JPanel();
+            PanelVide.setOpaque(false);
+            tableauPanel.add(PanelVide);
         }
 
         tableauPanel.revalidate();
@@ -183,10 +187,6 @@ public class TableauVue extends JPanel {
         // Rendre la JDialog visible
         dialog.setVisible(true);
     }
-
-
-
-
 
     public String getNom() {
         return this.nomTableauField.getText();

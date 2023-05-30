@@ -24,7 +24,7 @@ public class SectionVue extends JPanel {
     public void afficheActivites(){
         removeAll();
         add(label);
-        label.setText("Activités");
+        label.setText("Reunions");
         revalidate();
         repaint();
     }
@@ -37,10 +37,10 @@ public class SectionVue extends JPanel {
         repaint();
     }
 
-    public void afficheReunions(){
+    public void afficheReunions(JPanel reunionVue){
         removeAll();
-        add(label);
-        label.setText("Reunions");
+        add(reunionVue);
+        System.out.println("ok");
         revalidate();
         repaint();
     }

@@ -60,7 +60,7 @@ public class TableauControleur {
                 int indexCouleur = 0;
 
                 for (Tableau tableau : projet.getTableaux()) {
-                    JButton tableauBtn = new JButton("<html><pre><b> "+tableau.getNom()+"</b></pre><html>");
+                    JButton tableauBtn = new JButton("<html><b>"+tableau.getNom()+"</b><html>");
                     tableauBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
                     tableauBtn.setBackground(Color.decode(couleurs[indexCouleur]));
                     tableauBtn.setForeground(Color.WHITE);

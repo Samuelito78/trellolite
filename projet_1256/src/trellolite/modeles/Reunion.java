@@ -18,7 +18,12 @@ public class Reunion {
 		this.setNom(nom);
 		this.projet=projet;
 		this.utilisateurs = utilisateurs;
-	}	
+	}
+
+	public Reunion(String nom,Projet projet){
+		this.setNom(nom);
+		this.projet=projet;
+	}
 
 	//----------------------
 	//   GETTERS & SETTERS

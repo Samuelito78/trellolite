@@ -37,9 +37,7 @@ public class PrincipaleControleur {
                 String description = vue.getDescription();
                 Projet projet = new Projet(nom, type, description);
                 modele.addProjet(projet);
-
                 sectionVue = new SectionVue();
-
                 controleurProjet = new ProjetControleur(projet);
                 controleurNavBar = new NavBarControleur(controleurProjet.getVue(), sectionVue, projet);
 
