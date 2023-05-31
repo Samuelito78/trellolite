@@ -23,6 +23,10 @@ public class Tableau {
 	public Tableau(String nom, Projet projet){
 		this.setNom(nom);
 		this.projet = projet;
+		this.liste = new ArrayList<>();
+		liste.add(new Liste("À faire", this));
+		liste.add(new Liste("En cours", this));
+		liste.add(new Liste("Terminé", this));
 	}
 
 	public Tableau(){

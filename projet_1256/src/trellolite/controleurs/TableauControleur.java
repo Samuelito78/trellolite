@@ -2,6 +2,7 @@ package trellolite.controleurs;
 
 import trellolite.modeles.Projet;
 import trellolite.modeles.Tableau;
+import trellolite.vues.SectionVue;
 import trellolite.vues.TableauVue;
 
 import javax.swing.*;
@@ -20,11 +21,13 @@ public class TableauControleur {
     private TableauVue tableauVue;
     private JDialog dialog;
     private ArrayList<JButton> tableauBtnList;
-    public TableauControleur(Projet projet){
+    private SectionVue sectionVue;
+    public TableauControleur(Projet projet, SectionVue sectionVue){
         this.creeTableauBtn = new JButton("Nouveau tableau");
         this.submitTableauBtn = new JButton("Créer le tableau");
         this.returnTableauBtn = new JButton("Retour");
         this.tableauBtnList = new ArrayList<JButton>();
+        this.sectionVue = sectionVue;
 
         for (Tableau tableau : projet.getTableaux()) {
             JButton tableauBtn = new JButton(tableau.getNom());
@@ -71,6 +74,18 @@ public class TableauControleur {
                     tableauBtn.setHorizontalAlignment(SwingConstants.LEFT); // Aligner le texte à gauche
                     tableauBtn.setVerticalAlignment(SwingConstants.BOTTOM);
                     tableauBtn.setOpaque(true);
+
+                    // Creation objet type ListeControleur
+                    ListeControleur listeControleur = new ListeControleur(tableau);
+                    // Ecoute de l'événement tableauBtn
+                    tableauBtn.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            sectionVue.afficheListe(listeControleur.getCreeListeBtn());
+                        }
+                    });
+
+
+
 
                     // Créer un menu contextuel
                     JPopupMenu popupMenu = new JPopupMenu();

@@ -26,7 +26,7 @@ public class NavButtonControleur {
         ArrayList<JButton> navButtonsList = new ArrayList<>();
         ArrayList<NavButton> navButtons = navBar.getButtons();
 
-        TableauControleur tableauControleur = new TableauControleur(projet);
+        TableauControleur tableauControleur = new TableauControleur(projet, sectionVue);
         ReunionControleur reunionControleur = new ReunionControleur(projet);
 
         for (NavButton button : navButtons) {

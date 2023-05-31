@@ -21,6 +21,14 @@ public class SectionVue extends JPanel {
         repaint();
     }
 
+    public void afficheListe(JPanel liste){
+        removeAll();
+        add(liste);
+        System.out.println("ok");
+        revalidate();
+        repaint();
+    }
+
     public void afficheActivites(){
         removeAll();
         add(label);

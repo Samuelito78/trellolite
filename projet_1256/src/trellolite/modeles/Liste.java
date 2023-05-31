@@ -11,7 +11,14 @@ public class Liste {
         this.setNom(nom);
         this.cartes = cartes;
         this.tableau = tableau;
+
     }
+
+    public Liste(String nom, Tableau tableau) {
+        this.setNom(nom);
+        this.tableau = tableau;
+    }
+
 
     // Getter et Setter pour l'attribut "nom"
     public String getNom() {
