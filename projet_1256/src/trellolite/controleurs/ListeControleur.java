@@ -17,8 +17,8 @@ public class ListeControleur {
     private JButton creeListeBtn;
     private ListeVue listeVue;
     private JDialog dialog;
+    private JDialog dialog2;
     private ArrayList listePanelList;
-    private JButton submitCarteBtn, returnCarteBtn;
 
     private String[] couleurs = {"#757575","#7EA6E0","#67AB66","#7EA6E0", "#EA6B66", "#E8A566", "#97D077", "#9D7EE0", "#49618F", "#833551", "#7D4040"};
     private int indexCouleur = 0;
@@ -28,12 +28,10 @@ public class ListeControleur {
         JButton submitListeBtn = new JButton("Créer la liste");
         JButton returnListeBtn = new JButton("Retour");
 
-        this.submitCarteBtn = new JButton("Créer la carte");
-        this.returnCarteBtn = new JButton("Retour");
         this.listePanelList = new ArrayList<>();
 
         for (Liste liste : tableau.getListe()) {
-            listePanelList.add(createListePanel(liste, tableau, submitCarteBtn, returnCarteBtn));
+            listePanelList.add(createListePanel(liste, tableau));
         }
         this.creeListeBtn.setPreferredSize(new Dimension(160, 40));
         this.creeListeBtn.setBackground(Color.decode("#FA586A"));
@@ -62,7 +60,7 @@ public class ListeControleur {
                 Liste nouvelleListe = new Liste(listeVue.getNom(), tableau);
                 tableau.ajouterListe(nouvelleListe);
                 for (Liste liste : tableau.getListe()) {
-                    listePanelList.add(createListePanel(liste, tableau, submitCarteBtn, returnCarteBtn));
+                    listePanelList.add(createListePanel(liste, tableau));
                 }
                 listeVue.refreshPage(listePanelList);
                 dialog.dispose();
@@ -70,12 +68,9 @@ public class ListeControleur {
         });
     }
 
-    private JPanel createListePanel(Liste liste, Tableau tableau, JButton submitCarteBtn, JButton returnCarteBtn) {
+    private JPanel createListePanel(Liste liste, Tableau tableau) {
         JPanel listePanel = new JPanel(new BorderLayout());
         JButton creeCarteBtn = new JButton("Nouvelle carte");
-
-
-        JDialog dialog = new JDialog();
 
         listePanel.setBackground(Color.decode(couleurs[indexCouleur]));
         listePanel.setBorder(new EmptyBorder(15, 15, 15, 15)); // Add 15px padding to all sides
@@ -122,19 +117,6 @@ public class ListeControleur {
         if (indexCouleur >= couleurs.length) {
             indexCouleur = 0; // Reset color index if we've used all colors
         }
-
-
-        creeCarteBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                listeVue.afficheFormCarte(submitCarteBtn, returnCarteBtn, dialog, listePanel);
-            }
-        });
-
-        returnCarteBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dialog.dispose();
-            }
-        });
 
         listePanel.add(creeCarteBtn, BorderLayout.SOUTH);
         return listePanel;
