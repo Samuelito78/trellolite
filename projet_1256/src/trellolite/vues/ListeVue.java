@@ -35,8 +35,7 @@ public class ListeVue extends JPanel {
         titlePanel.setFont(new Font(titlePanel.getFont().getName(), titlePanel.getFont().getStyle(), 26));
         titlePanel.setForeground(Color.white);
 
-        String subtitleText = (listePanelliste != null && listePanelliste.size() > 0) ? "VOS LISTES" : "VOUS N'AVEZ AUCUNE LISTE";
-        this.subttitlePanel = new JLabel(subtitleText);
+        this.subttitlePanel = new JLabel();
         subttitlePanel.setPreferredSize(new Dimension(bodyPanel.getWidth(),60));
         subttitlePanel.setForeground(Color.decode("#B9B9B9"));
 
@@ -114,6 +113,61 @@ public class ListeVue extends JPanel {
         formPanel.setBackground(Color.decode("#252526"));
 
         JLabel label = new JLabel("Nom de la liste");
+        label.setBorder(BorderFactory.createEmptyBorder(10, 5, 10, 10));
+        label.setForeground(Color.WHITE);
+        formPanel.add(label, BorderLayout.NORTH);
+
+        this.nomListeField = new JTextField();
+        this.nomListeField.setBackground(Color.decode("#111111"));
+        this.nomListeField.setForeground(Color.WHITE);
+        this.nomListeField.setPreferredSize(new Dimension(nomListeField.getPreferredSize().width, 40));
+        formPanel.add(this.nomListeField, BorderLayout.CENTER);
+
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        buttonPanel.setBackground(Color.decode("#252526"));
+
+        submitListeBtn.setPreferredSize(new Dimension(140, 40));
+        submitListeBtn.setBackground(Color.decode("#1a8754"));
+        submitListeBtn.setForeground(Color.WHITE);
+        submitListeBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
+        submitListeBtn.setOpaque(true);
+
+        returnListeBtn.setPreferredSize(new Dimension(returnListeBtn.getPreferredSize().width, 40));
+        returnListeBtn.setBackground(Color.decode("#252526"));
+        returnListeBtn.setForeground(Color.WHITE);
+        returnListeBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
+        returnListeBtn.setOpaque(true);
+        buttonPanel.add(returnListeBtn);
+        buttonPanel.add(submitListeBtn);
+        formPanel.add(buttonPanel, BorderLayout.SOUTH);
+
+        dialog.add(formPanel);
+
+        dialog.pack();
+
+        Point location = this.getLocationOnScreen();
+        int x = location.x + this.getWidth()/2 - dialog.getWidth()/2;
+        int y = location.y + this.getHeight()/2 - dialog.getHeight()/2;
+        dialog.setLocation(x, y);
+
+        dialog.setVisible(true);
+    }
+
+
+    public void afficheFormCarte(JButton submitListeBtn, JButton returnListeBtn, JDialog dialog, JPanel listePanel){
+        dialog.setModal(true);
+        dialog.setUndecorated(true);
+        dialog.setTitle("Formulaire de création de carte");
+        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
+        dialog.setResizable(false);
+
+        JPanel formPanel = new JPanel(new BorderLayout());
+        formPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        formPanel.setBackground(Color.decode("#252526"));
+
+        JLabel label = new JLabel("Nom de la carte");
         label.setBorder(BorderFactory.createEmptyBorder(10, 5, 10, 10));
         label.setForeground(Color.WHITE);
         formPanel.add(label, BorderLayout.NORTH);
