@@ -10,11 +10,11 @@ public class ListeVue extends JPanel {
     private JLabel titlePanel;
     private JLabel subttitlePanel;
     private JPanel headPanel;
-    private JPanel bodyPanel;
+    private JScrollPane bodyPanel;
     private ArrayList<JButton> listeBtnList;
     private JPanel listePanel;
 
-    private JTextField nomListeField;
+    private JTextField nomField;
 
     public ListeVue(JButton creeListeBtn, ArrayList<JPanel> listePanelliste, String nom){
         setLayout(new BorderLayout());
@@ -24,11 +24,16 @@ public class ListeVue extends JPanel {
         headPanel.setLayout(new BorderLayout());
         headPanel.setOpaque(false);
         headPanel.setPreferredSize(new Dimension(headPanel.getWidth(), 75));
-
-        bodyPanel = new JPanel();
-        bodyPanel.setLayout(new GridBagLayout());
+        JPanel contentPanel = new JPanel(new GridBagLayout());
+        contentPanel.setOpaque(false);
+        bodyPanel = new JScrollPane(contentPanel);
         bodyPanel.setOpaque(false);
+        bodyPanel.getViewport().setOpaque(false);
+        bodyPanel.getVerticalScrollBar().setOpaque(false);
+        bodyPanel.setBorder(null);
 
+
+        ((JPanel) bodyPanel.getViewport().getView()).setOpaque(false);
         headPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.decode("#363636")));
 
         this.titlePanel = new JLabel("<html><b>"+nom+"</b></html>");
@@ -47,7 +52,7 @@ public class ListeVue extends JPanel {
         gbcSubTitle.gridy = 0;
         gbcSubTitle.weightx = 1.0;
 
-        bodyPanel.add(subttitlePanel, gbcSubTitle);
+        ((JPanel)bodyPanel.getViewport().getView()).add(subttitlePanel, gbcSubTitle);
 
         listePanel = new JPanel();
         listePanel.setOpaque(false);
@@ -58,7 +63,7 @@ public class ListeVue extends JPanel {
         gbcListePanel.gridy = 1;
         gbcListePanel.weightx = 1.0;
         gbcListePanel.weighty = 1.0;
-        bodyPanel.add(listePanel, gbcListePanel);
+        ((JPanel)bodyPanel.getViewport().getView()).add(listePanel, gbcListePanel);
 
         JPanel buttonPanel = new JPanel(new GridBagLayout());
         buttonPanel.setOpaque(false);
@@ -99,10 +104,9 @@ public class ListeVue extends JPanel {
         listePanel.repaint();
     }
 
-    public void afficheForm(JButton submitListeBtn, JButton returnListeBtn, JDialog dialog){
+    public void afficheForm(JButton submitListeBtn, JButton returnListeBtn, JDialog dialog, JLabel label){
         dialog.setModal(true);
         dialog.setUndecorated(true);
-        dialog.setTitle("Formulaire de création de liste");
         dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
         dialog.setResizable(false);
@@ -112,71 +116,16 @@ public class ListeVue extends JPanel {
 
         formPanel.setBackground(Color.decode("#252526"));
 
-        JLabel label = new JLabel("Nom de la liste");
+
         label.setBorder(BorderFactory.createEmptyBorder(10, 5, 10, 10));
         label.setForeground(Color.WHITE);
         formPanel.add(label, BorderLayout.NORTH);
 
-        this.nomListeField = new JTextField();
-        this.nomListeField.setBackground(Color.decode("#111111"));
-        this.nomListeField.setForeground(Color.WHITE);
-        this.nomListeField.setPreferredSize(new Dimension(nomListeField.getPreferredSize().width, 40));
-        formPanel.add(this.nomListeField, BorderLayout.CENTER);
-
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        buttonPanel.setBackground(Color.decode("#252526"));
-
-        submitListeBtn.setPreferredSize(new Dimension(140, 40));
-        submitListeBtn.setBackground(Color.decode("#1a8754"));
-        submitListeBtn.setForeground(Color.WHITE);
-        submitListeBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
-        submitListeBtn.setOpaque(true);
-
-        returnListeBtn.setPreferredSize(new Dimension(returnListeBtn.getPreferredSize().width, 40));
-        returnListeBtn.setBackground(Color.decode("#252526"));
-        returnListeBtn.setForeground(Color.WHITE);
-        returnListeBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
-        returnListeBtn.setOpaque(true);
-        buttonPanel.add(returnListeBtn);
-        buttonPanel.add(submitListeBtn);
-        formPanel.add(buttonPanel, BorderLayout.SOUTH);
-
-        dialog.add(formPanel);
-
-        dialog.pack();
-
-        Point location = this.getLocationOnScreen();
-        int x = location.x + this.getWidth()/2 - dialog.getWidth()/2;
-        int y = location.y + this.getHeight()/2 - dialog.getHeight()/2;
-        dialog.setLocation(x, y);
-
-        dialog.setVisible(true);
-    }
-
-
-    public void afficheFormCarte(JButton submitListeBtn, JButton returnListeBtn, JDialog dialog, JPanel listePanel){
-        dialog.setModal(true);
-        dialog.setUndecorated(true);
-        dialog.setTitle("Formulaire de création de carte");
-        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-
-        dialog.setResizable(false);
-
-        JPanel formPanel = new JPanel(new BorderLayout());
-        formPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-        formPanel.setBackground(Color.decode("#252526"));
-
-        JLabel label = new JLabel("Nom de la carte");
-        label.setBorder(BorderFactory.createEmptyBorder(10, 5, 10, 10));
-        label.setForeground(Color.WHITE);
-        formPanel.add(label, BorderLayout.NORTH);
-
-        this.nomListeField = new JTextField();
-        this.nomListeField.setBackground(Color.decode("#111111"));
-        this.nomListeField.setForeground(Color.WHITE);
-        this.nomListeField.setPreferredSize(new Dimension(nomListeField.getPreferredSize().width, 40));
-        formPanel.add(this.nomListeField, BorderLayout.CENTER);
+        this.nomField = new JTextField();
+        this.nomField.setBackground(Color.decode("#111111"));
+        this.nomField.setForeground(Color.WHITE);
+        this.nomField.setPreferredSize(new Dimension(nomField.getPreferredSize().width, 40));
+        formPanel.add(this.nomField, BorderLayout.CENTER);
 
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.setBackground(Color.decode("#252526"));
@@ -209,6 +158,8 @@ public class ListeVue extends JPanel {
     }
 
     public String getNom() {
-        return this.nomListeField.getText();
+        return this.nomField.getText();
     }
+
+
 }

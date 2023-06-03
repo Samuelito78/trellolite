@@ -1,5 +1,6 @@
 package trellolite.controleurs;
 
+import trellolite.modeles.Carte;
 import trellolite.modeles.Liste;
 import trellolite.modeles.Tableau;
 import trellolite.vues.ListeVue;
@@ -27,12 +28,17 @@ public class ListeControleur {
         this.creeListeBtn = new JButton("Nouvelle liste");
         JButton submitListeBtn = new JButton("Créer la liste");
         JButton returnListeBtn = new JButton("Retour");
+        JLabel label = new JLabel("Nom de la liste");
 
         this.listePanelList = new ArrayList<>();
 
         for (Liste liste : tableau.getListe()) {
             listePanelList.add(createListePanel(liste, tableau));
         }
+
+
+
+
         this.creeListeBtn.setPreferredSize(new Dimension(160, 40));
         this.creeListeBtn.setBackground(Color.decode("#FA586A"));
         this.creeListeBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -44,9 +50,11 @@ public class ListeControleur {
         creeListeBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dialog = new JDialog();
-                listeVue.afficheForm(submitListeBtn, returnListeBtn, dialog);
+                listeVue.afficheForm(submitListeBtn, returnListeBtn, dialog, label);
             }
         });
+
+
 
         returnListeBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -56,12 +64,12 @@ public class ListeControleur {
 
         submitListeBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                listePanelList.clear();
                 Liste nouvelleListe = new Liste(listeVue.getNom(), tableau);
                 tableau.ajouterListe(nouvelleListe);
-                for (Liste liste : tableau.getListe()) {
-                    listePanelList.add(createListePanel(liste, tableau));
-                }
+
+                // Ajoutez seulement le panneau pour la nouvelle liste, pas pour chaque liste
+                listePanelList.add(createListePanel(nouvelleListe, tableau));
+
                 listeVue.refreshPage(listePanelList);
                 dialog.dispose();
             }
@@ -70,7 +78,39 @@ public class ListeControleur {
 
     private JPanel createListePanel(Liste liste, Tableau tableau) {
         JPanel listePanel = new JPanel(new BorderLayout());
-        JButton creeCarteBtn = new JButton("Nouvelle carte");
+
+        JPanel carteBtnPanel = new JPanel();
+        GridLayout layout = new GridLayout(0, 1); // Create the layout separately
+        carteBtnPanel.setBorder(new EmptyBorder(10, 0, 10, 0));
+        layout.setVgap(10); // Set the vertical gap between rows
+        carteBtnPanel.setLayout(layout); // Set the layout with a gap
+        carteBtnPanel.setOpaque(false);
+        JButton creeCarteBtn = new JButton("<html><b>Nouvelle carte</b></html<");
+
+        creeCarteBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
+        creeCarteBtn.setOpaque(true);
+        creeCarteBtn.setBackground(new Color(255, 255, 255, 30));
+        creeCarteBtn.setForeground(Color.white);
+        creeCarteBtn.setPreferredSize(new Dimension(0, 30));
+        creeCarteBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JDialog dialog = createCarteDialog(liste, listePanel, carteBtnPanel);
+            }
+        });
+
+        for (Carte carte : liste.getCartes()) {
+            System.out.println("Ajout de "+ carte.getNom()+" dans "+ liste.getNom());
+            JButton carteBtn = new JButton(carte.getNom());
+            carteBtn.setPreferredSize(new Dimension(Integer.MAX_VALUE, 40));
+            carteBtn.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
+            carteBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
+            carteBtn.setBackground(Color.white);
+            carteBtn.setOpaque(true);
+
+
+
+            carteBtnPanel.add(carteBtn);
+        }
 
         listePanel.setBackground(Color.decode(couleurs[indexCouleur]));
         listePanel.setBorder(new EmptyBorder(15, 15, 15, 15)); // Add 15px padding to all sides
@@ -118,9 +158,88 @@ public class ListeControleur {
             indexCouleur = 0; // Reset color index if we've used all colors
         }
 
+        listePanel.add(carteBtnPanel, BorderLayout.CENTER);
         listePanel.add(creeCarteBtn, BorderLayout.SOUTH);
+
         return listePanel;
     }
+
+
+    private JDialog createCarteDialog(Liste liste, JPanel listePanel, JPanel carteBtnPanel) {
+        JDialog dialog = new JDialog();
+        JLabel label = new JLabel("Nom de la carte");
+        JButton submitCarteBtn = new JButton("Créer la carte");
+        JButton returnCarteBtn = new JButton("Retour");
+
+        submitCarteBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Carte nouvelleCarte = new Carte(listeVue.getNom());
+                System.out.println("Ajout de "+ nouvelleCarte.getNom()+" dans "+ liste.getNom());
+                liste.ajouterCarte(nouvelleCarte);
+
+                // Créer le nouveau bouton avec le bon style
+                JButton carteBtn = new JButton(nouvelleCarte.getNom());
+                carteBtn.setPreferredSize(new Dimension(Integer.MAX_VALUE, 40));
+                carteBtn.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
+                carteBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
+                carteBtn.setBackground(Color.white);
+                carteBtn.setOpaque(true);
+
+
+                // Créer un menu contextuel pour chaque carteBtn
+                JPopupMenu popupMenuCarte = new JPopupMenu();
+                JMenuItem deleteItemCarte = new JMenuItem("Supprimer la carte");
+                deleteItemCarte.setBackground(Color.red);
+                deleteItemCarte.setForeground(Color.white);
+                deleteItemCarte.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        // Logique pour supprimer la carte de la liste
+                        liste.supprCarte(nouvelleCarte);
+
+                        // Supprimer le bouton correspondant à cette carte de carteBtnPanel
+                        carteBtnPanel.remove(carteBtn);
+
+                        // Actualiser l'interface utilisateur pour refléter la suppression de la carte
+                        listeVue.refreshPage(listePanelList);
+                    }
+                });
+                popupMenuCarte.add(deleteItemCarte);
+
+                // Ajouter un MouseListener à carteBtn pour afficher le menu contextuel lors d'un clic droit
+                carteBtn.addMouseListener(new MouseAdapter() {
+                    public void mousePressed(MouseEvent me) {
+                        if (SwingUtilities.isRightMouseButton(me)) {
+                            popupMenuCarte.show(me.getComponent(), me.getX(), me.getY());
+                        }
+                    }
+                });
+
+
+
+
+                // Ajouter le bouton à carteBtnPanel plutôt qu'à listePanel
+                carteBtnPanel.add(carteBtn);
+
+                dialog.dispose();
+                listeVue.refreshPage(listePanelList);
+            }
+        });
+
+
+
+        returnCarteBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dialog.dispose();
+            }
+        });
+
+        listeVue.afficheForm(submitCarteBtn, returnCarteBtn, dialog, label);
+
+        return dialog;
+    }
+
+
+
     public JPanel getCreeListeBtn(){
         return this.listeVue;
     }

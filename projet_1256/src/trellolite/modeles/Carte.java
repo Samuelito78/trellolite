@@ -26,6 +26,10 @@ public class Carte {
 
     }
 
+    public Carte(String nom){
+        this.nom = nom;
+    }
+
     // Getter et Setter pour l'attribut "description"
     public String getDescription() {
         return description;

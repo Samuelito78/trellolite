@@ -17,6 +17,7 @@ public class Liste {
     public Liste(String nom, Tableau tableau) {
         this.setNom(nom);
         this.tableau = tableau;
+        this.cartes = new ArrayList<>();
     }
 
 
