@@ -1,4 +1,5 @@
 package trellolite.controleurs;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -7,6 +8,15 @@ import trellolite.modeles.*;
 import trellolite.controleurs.ProjetControleur;
 import trellolite.vues.SectionVue;
 
+/**
+ * Le contrôleur pour la fenêtre principale de l'application.
+ * Cette classe est responsable de la gestion de l'interaction entre le modèle Principale et la vue PrincipaleVue.
+ * Elle crée et configure les boutons de la fenêtre principale, y compris le bouton de création de projet.
+ * Elle écoute les événements des boutons et effectue les actions correspondantes, telles que la création d'un nouveau projet.
+ * Elle gère également les changements de projet en mettant à jour les vues associées au projet actuel.
+ * 
+ * @author Nawfel Kerarsi
+ */
 public class PrincipaleControleur {
     private PrincipaleVue vue;
     private Principale modele;
@@ -17,6 +27,13 @@ public class PrincipaleControleur {
     private NavBarControleur controleurNavBar;
     private Projet projetActuel;
 
+    /**
+     * Constructeur de la classe PrincipaleControleur.
+     * Crée une instance du modèle Principale et de la vue PrincipaleVue.
+     * Configure les boutons de la fenêtre principale et associe les écouteurs d'événements correspondants.
+     * 
+     * @param modele l'instance du modèle Principale.
+     */
     public PrincipaleControleur(Principale modele) {
         this.modele = modele;
         this.vue = new PrincipaleVue();
@@ -62,13 +79,25 @@ public class PrincipaleControleur {
         vue.showMainView(monBouton);
     }
 
+    /**
+     * @return l'instance de la vue PrincipaleVue.
+     */
     public PrincipaleVue getVue() {
         return this.vue;
     }
+
+    /**
+     * @return le bouton "Créer le projet".
+     */
     public JButton getSubmitButton(){
         return this.submitButton;
     }
 
+    /**
+     * Change le projet actuel et met à jour les vues associées au nouveau projet.
+     * 
+     * @param nouveauProjet le nouveau projet sélectionné.
+     */
     public void changeProjet(Projet nouveauProjet) {
         this.projetActuel = nouveauProjet;
         controleurNavBar.setProjet(nouveauProjet);

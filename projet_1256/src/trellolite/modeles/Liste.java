@@ -1,6 +1,12 @@
 package trellolite.modeles;
 import java.util.ArrayList;
 
+/**
+ * La classe Liste représente une liste dans l'application.
+ * Une liste est associée à un tableau et contient des cartes.
+ *
+ * @author Mohamed Telli
+ */
 public class Liste {
 
     //-----------------------------------------

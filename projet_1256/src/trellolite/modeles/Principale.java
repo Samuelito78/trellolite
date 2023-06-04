@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * La classe Principale représente l'entité principale de l'application Trellolite.
  * Elle contient une liste de projets.
  *
- * @author Samuel Boix-Segura
+ * @author Mohamed Telli
  */
 public class Principale {
     // Liste des projets

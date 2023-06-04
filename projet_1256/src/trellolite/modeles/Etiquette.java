@@ -4,7 +4,8 @@ import java.util.ArrayList;
 /**
  * La classe Etiquette représente une étiquette dans le système Trellolite.
  * Une étiquette est simplement définie par son nom.
- * 
+ *
+ * @author Clement Cressault
  */
 public class Etiquette {
 

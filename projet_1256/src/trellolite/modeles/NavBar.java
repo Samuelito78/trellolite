@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * La classe NavBar représente une barre de navigation dans l'application.
  * Une barre de navigation est constituée d'une liste de boutons de navigation.
  *
- * @author Samuel Boix-Segura
+ * @author Clement Cressault
  */
 public class NavBar {
 

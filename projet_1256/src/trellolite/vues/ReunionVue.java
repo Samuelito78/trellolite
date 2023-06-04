@@ -5,6 +5,12 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * La classe ReunionVue représente la vue des réunions d'un projet dans l'application Trellolite.
+ * Elle affiche les réunions existantes et permet d'ajouter de nouvelles réunions.
+ * 
+ * @author Nawfel Kerarsi
+ */
 public class ReunionVue extends JPanel {
     private JLabel titlePanel;
     private JLabel subtitlePanel;
@@ -15,6 +21,12 @@ public class ReunionVue extends JPanel {
 
     private JTextField nomReunionField;
 
+    /**
+     * Constructeur de la classe ReunionVue.
+     *
+     * @param creeReunionBtn   Le bouton de création de réunion.
+     * @param reunionBtnList   La liste des boutons représentant les réunions existantes.
+     */
     public ReunionVue(JButton creeReunionBtn, ArrayList<JButton> reunionBtnList) {
         setLayout(new BorderLayout());
         setOpaque(false);
@@ -76,6 +88,12 @@ public class ReunionVue extends JPanel {
         add(headPanel, BorderLayout.NORTH);
         add(bodyPanel, BorderLayout.CENTER);
     }
+
+    /**
+     * Met à jour la vue des réunions.
+     *
+     * @param reunionBtnList   La liste des boutons représentant les réunions existantes.
+     */
     public void refreshPage(ArrayList<JButton> reunionBtnList) {
         String subtitleText = (reunionBtnList != null && reunionBtnList.size() > 0) ? "VOS REUNIONS" : "VOUS N'AVEZ AUCUNE REUNION";
         this.subtitlePanel.setText(subtitleText);
@@ -97,6 +115,14 @@ public class ReunionVue extends JPanel {
         reunionPanel.revalidate();
         reunionPanel.repaint();
     }
+
+    /**
+     * Affiche le formulaire de création de réunion dans une boîte de dialogue.
+     *
+     * @param submitReunionBtn   Le bouton de soumission du formulaire.
+     * @param returnReunionBtn   Le bouton de retour du formulaire.
+     * @param dialog             La boîte de dialogue pour afficher le formulaire.
+     */
     public void afficheForm(JButton submitReunionBtn, JButton returnReunionBtn, JDialog dialog){
         // Création de la JDialog
         dialog.setModal(true);
@@ -163,8 +189,12 @@ public class ReunionVue extends JPanel {
         dialog.setVisible(true);
     }
 
+    /**
+     * Récupère le nom de la réunion saisi dans le formulaire.
+     *
+     * @return Le nom de la réunion.
+     */
     public String getNom() {
         return this.nomReunionField.getText();
     }
-
 }

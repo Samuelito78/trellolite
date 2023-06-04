@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * La classe Reunion représente une réunion dans le contexte de l'application Trellolite.
  * Chaque réunion a un nom, est associée à un projet et a une liste d'utilisateurs y participant.
  * 
- * @author Samuel Boix-Segura
+ * @author Mohamed Telli
  */
 public class Reunion {
 

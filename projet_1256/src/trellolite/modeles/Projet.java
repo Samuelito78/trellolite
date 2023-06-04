@@ -1,8 +1,13 @@
 package trellolite.modeles;
 import java.util.ArrayList;
 
-
-
+/**
+ * La classe Projet représente un projet dans l'application.
+ * Un projet est composé de tableaux, d'utilisateurs et de réunions.
+ * Il contient des informations telles que le nom, le type et la description du projet.
+ *
+ * @author Mohamed Telli
+ */
 
 public class Projet {
     // Attributs
@@ -13,7 +18,7 @@ public class Projet {
     private String type;
     private String description;
 
-        /**
+    /**
      * Constructeur complet pour la classe Projet. 
      * Initialise toutes les variables d'instance avec les paramètres donnés.
      * 

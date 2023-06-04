@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * La classe Utilisateur représente un utilisateur de l'application Trellolite. 
  * Chaque utilisateur a un id, un nom, un prénom, un email, un mot de passe et un rôle.
  * 
- * @author Samuel Boix-Segura
+ * @author Mohamed Telli
  */
 public class Utilisateur {
 	

@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
  * Une carte est composée d'un nom, d'une description, de dates de début et de fin,
  * et peut contenir plusieurs commentaires et étiquettes.
  * 
- * @author Samuel Boix-Segura
+ * @author Clement Cressault
  */
 public class Carte {
 

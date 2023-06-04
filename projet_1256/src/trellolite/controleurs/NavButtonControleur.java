@@ -1,4 +1,5 @@
 package trellolite.controleurs;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
@@ -15,8 +16,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-
-
+/**
+ * Controleur qui gère les interactions de l'utilisateur avec les boutons de navigation dans l'application Trellolite.
+ * Il relie le modèle NavButton avec la vue NavButtonVue.
+ * Il gère aussi les actions de navigation entre les différentes sections de l'application (tableau, membres, réunions, paramètres).
+ */
 public class NavButtonControleur {
     private NavButtonVue navButtonVue;
     private NavBar navBar;
@@ -26,7 +30,19 @@ public class NavButtonControleur {
     private ReunionControleur reunionControleur;
     private ParametreControleur parametreControleur;
 
-    NavButtonControleur(NavBar navBar, SectionVue sectionVue, Projet projet, Utilisateur utilisateur, ProjetVue projetVue){
+     /**
+     * Constructeur pour le contrôleur des boutons de navigation.
+     * 
+     * @param navBar la barre de navigation contenant les boutons.
+     * @param sectionVue la vue de la section.
+     * @param projet le projet associé aux boutons de navigation.
+     * @param utilisateur l'utilisateur actuel de l'application.
+     * @param projetVue la vue du projet.
+     * Il initialise les autres contrôleurs (tableau, membre, réunion, paramètre) et les boutons de navigation.
+     * Les boutons sont initialisés avec leur nom, leur icône, leur taille, leur couleur et leur action lorsqu'ils sont sélectionnés.
+     * Les actions déclenchent le changement de section dans l'application (tableau, membres, réunions, paramètres).
+     */
+    public NavButtonControleur(NavBar navBar, SectionVue sectionVue, Projet projet, Utilisateur utilisateur, ProjetVue projetVue) {
         this.sectionVue = sectionVue;
         this.navBar = navBar;
         ArrayList<JButton> navButtonsList = new ArrayList<>();
@@ -51,26 +67,26 @@ public class NavButtonControleur {
             btn.setBackground(Color.decode("#252526"));
             btn.setOpaque(true);
 
-            // Initialise la couleur du bouton en fonction de son état isSelected
-            if(button.isSelected()){
+            // Initialisation de la couleur du bouton en fonction de son état isSelected
+            if (button.isSelected()) {
                 btn.setBackground(Color.decode("#343435"));
             } else {
-                btn.setBackground(Color.decode("#252526")); // Supposons que la couleur GRAY est la couleur d'un bouton non sélectionné.
+                btn.setBackground(Color.decode("#252526")); // la couleur GRAY est la couleur d'un bouton non sélectionné.
             }
 
             btn.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    // Mettre tous les boutons sur isSelected = false
+                    // on met tous les boutons sur isSelected = false
                     for (NavButton otherButton : navButtons) {
                         otherButton.setSelected(false);
                     }
 
-                    // Mettre ce bouton sur isSelected = true
+                    // on met ce bouton sur isSelected = true
                     button.setSelected(true);
 
-                    // Mettre à jour les couleurs de tous les boutons en conséquence
+                    // on met à jour les couleurs de tous les boutons en conséquence
                     for (JButton otherBtn : navButtonsList) {
-                        if(button.getName().equals(otherBtn.getText())){
+                        if (button.getName().equals(otherBtn.getText())) {
                             otherBtn.setBackground(Color.decode("#343435"));
                         } else {
                             otherBtn.setBackground(Color.decode("#252526"));
@@ -100,15 +116,31 @@ public class NavButtonControleur {
         }
         this.navButtonVue = new NavButtonVue(navButtonsList);
     }
+
+    /**
+     * Renvoie l'instance de la vue des boutons de navigation associée à ce contrôleur.
+     *
+     * @return l'instance de la vue des boutons de navigation.
+     */
     public NavButtonVue getVue() {
         return this.navButtonVue;
     }
 
-    public TableauControleur getTableauControleur(){
+    /**
+     * Renvoie l'instance du contrôleur des tableaux associé à ce contrôleur des boutons de navigation.
+     *
+     * @return l'instance du contrôleur des tableaux.
+     */
+    public TableauControleur getTableauControleur() {
         return this.tableauControleur;
     }
 
-    public void setProjet(Projet projet){
+    /**
+     * Définit le projet associé aux contrôleurs.
+     *
+     * @param projet le projet à associer.
+     */
+    public void setProjet(Projet projet) {
         tableauControleur.setProjet(projet);
         membreControleur.setProjet(projet);
         reunionControleur.setProjet(projet);

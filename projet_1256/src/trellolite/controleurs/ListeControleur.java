@@ -17,6 +17,14 @@ import java.util.ArrayList;
 import trellolite.vues.SectionVue;
 import trellolite.vues.TableauVue;
 
+/**
+ * Cette classe est responsable de la gestion des interactions utilisateur
+ * avec les listes dans l'application. Elle gère la création, la suppression et l'affichage des listes
+ * dans le tableau et gère aussi les action sur les cartes à l'intérieur de ces listes. 
+ * Les événements générés par l'interface utilisateur sont capturés et traités ici.
+ * 
+ * @author Samuel Boix-Ségura
+ */
 public class ListeControleur {
     private JButton creeListeBtn;
     private JButton carteBtn;
@@ -31,6 +39,14 @@ public class ListeControleur {
     private Utilisateur utilisateur;
     private CarteControleur carteControleur;
 
+    /**
+     * Constructeur de la classe ListeControleur. 
+     * Initialise les composants de l'interface utilisateur et définit les gestionnaires d'événements.
+     *
+     * @param tableau Le tableau en cours.
+     * @param sectionVue La vue de la section.
+     * @param utilisateur L'utilisateur actuel.
+     */
     public ListeControleur(Tableau tableau, SectionVue sectionVue, Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
         this.creeListeBtn = new JButton("Nouvelle liste");
@@ -86,6 +102,13 @@ public class ListeControleur {
         });
     }
 
+    /**
+     * Crée le panneau pour une liste spécifique
+     *
+     * @param liste La liste à afficher dans le panneau.
+     * @param tableau Le tableau contenant la liste.
+     * @return JPanel Le panneau créé pour la liste.
+     */
     private JPanel createListePanel(Liste liste, Tableau tableau) {
         JPanel listePanel = new JPanel(new BorderLayout());
 
@@ -172,7 +195,14 @@ public class ListeControleur {
         return listePanel;
     }
 
-
+    /**
+     * Crée le dialogue pour la création d'une carte.
+     *
+     * @param liste La liste à laquelle la carte doit être ajoutée.
+     * @param listePanel Le panneau contenant la liste à laquelle la carte doit être ajoutée.
+     * @param carteBtnPanel Le panneau contenant le bouton de la carte à créer.
+     * @return JDialog Le dialogue créé pour la création d'une carte.
+     */
     private JDialog createCarteDialog(Liste liste, JPanel listePanel, JPanel carteBtnPanel) {
         JDialog dialog = new JDialog();
         JLabel label = new JLabel("Nom de la carte");
@@ -251,11 +281,17 @@ public class ListeControleur {
     }
 
 
-
+    /**
+     * @return JPanel Le panneau avec le bouton de création de liste.
+     */
     public JPanel getCreeListeBtn(){
         return this.listeVue;
     }
 
+    /**
+     *
+     * @param nouveauNom Le nouveau nom de la carte.
+     */    
     public void updateCarteNom(String nouveauNom) {
         if (carteBtn != null) {
             carteBtn.setText(nouveauNom);

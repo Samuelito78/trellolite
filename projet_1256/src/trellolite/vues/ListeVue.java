@@ -5,10 +5,17 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * La classe ListeVue représente la vue d'une liste dans l'application Trellolite.
+ * Elle affiche le titre de la liste, ainsi que les boutons et panneaux associés.
+ * ell permet également de rafraîchir la page avec les nouvelles listes.
+ *
+ *@author Nawfel Kerarsi
+ */
 public class ListeVue extends JPanel {
 
     private JLabel titlePanel;
-    private JLabel subttitlePanel;
+    private JLabel subtitlePanel;
     private JPanel headPanel;
     private JScrollPane bodyPanel;
     private ArrayList<JButton> listeBtnList;
@@ -16,7 +23,15 @@ public class ListeVue extends JPanel {
 
     private JTextField nomField;
 
-    public ListeVue(JButton creeListeBtn, ArrayList<JPanel> listePanelliste, String nom){
+    /**
+     * Constructeur de la classe ListeVue.
+     * Initialise les composants de la vue de la liste.
+     *
+     * @param creeListeBtn    Le bouton de création de liste.
+     * @param listePanelliste La liste des panneaux de liste.
+     * @param nom             Le nom de la liste.
+     */
+    public ListeVue(JButton creeListeBtn, ArrayList<JPanel> listePanelliste, String nom) {
         setLayout(new BorderLayout());
         setOpaque(false);
 
@@ -36,13 +51,13 @@ public class ListeVue extends JPanel {
         ((JPanel) bodyPanel.getViewport().getView()).setOpaque(false);
         headPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.decode("#363636")));
 
-        this.titlePanel = new JLabel("<html><b>"+nom+"</b></html>");
+        this.titlePanel = new JLabel("<html><b>" + nom + "</b></html>");
         titlePanel.setFont(new Font(titlePanel.getFont().getName(), titlePanel.getFont().getStyle(), 26));
         titlePanel.setForeground(Color.white);
 
-        this.subttitlePanel = new JLabel();
-        subttitlePanel.setPreferredSize(new Dimension(bodyPanel.getWidth(),60));
-        subttitlePanel.setForeground(Color.decode("#B9B9B9"));
+        this.subtitlePanel = new JLabel();
+        subtitlePanel.setPreferredSize(new Dimension(bodyPanel.getWidth(), 60));
+        subtitlePanel.setForeground(Color.decode("#B9B9B9"));
 
         headPanel.add(titlePanel, BorderLayout.WEST);
 
@@ -52,7 +67,7 @@ public class ListeVue extends JPanel {
         gbcSubTitle.gridy = 0;
         gbcSubTitle.weightx = 1.0;
 
-        ((JPanel)bodyPanel.getViewport().getView()).add(subttitlePanel, gbcSubTitle);
+        ((JPanel) bodyPanel.getViewport().getView()).add(subtitlePanel, gbcSubTitle);
 
         listePanel = new JPanel();
         listePanel.setOpaque(false);
@@ -63,7 +78,7 @@ public class ListeVue extends JPanel {
         gbcListePanel.gridy = 1;
         gbcListePanel.weightx = 1.0;
         gbcListePanel.weighty = 1.0;
-        ((JPanel)bodyPanel.getViewport().getView()).add(listePanel, gbcListePanel);
+        ((JPanel) bodyPanel.getViewport().getView()).add(listePanel, gbcListePanel);
 
         JPanel buttonPanel = new JPanel(new GridBagLayout());
         buttonPanel.setOpaque(false);
@@ -83,9 +98,14 @@ public class ListeVue extends JPanel {
         this.refreshPage(listePanelliste);
     }
 
+    /**
+     * Met à jour les composants de la page de la liste.
+     *
+     * @param listePanelliste La liste des panneaux de liste.
+     */
     public void refreshPage(ArrayList<JPanel> listePanelliste) {
         String subtitleText = (listePanelliste != null && listePanelliste.size() > 0) ? "VOS LISTES" : "VOUS N'AVEZ AUCUNE LISTE";
-        this.subttitlePanel.setText(subtitleText);
+        this.subtitlePanel.setText(subtitleText);
         listePanel.removeAll();
 
         int numColumns = 3;
@@ -94,17 +114,25 @@ public class ListeVue extends JPanel {
         for (JPanel panelBtn : listePanelliste) {
             listePanel.add(panelBtn);
         }
-        for (int k=0; k<3;k++) {
-            JPanel PanelVide = new JPanel();
-            PanelVide.setOpaque(false);
-            listePanel.add(PanelVide);
+        for (int k = 0; k < 3; k++) {
+            JPanel emptyPanel = new JPanel();
+            emptyPanel.setOpaque(false);
+            listePanel.add(emptyPanel);
         }
 
         listePanel.revalidate();
         listePanel.repaint();
     }
 
-    public void afficheForm(JButton submitListeBtn, JButton returnListeBtn, JDialog dialog, JLabel label){
+    /**
+     * Affiche le formulaire de création de liste.
+     *
+     * @param submitListeBtn  Le bouton de soumission du formulaire.
+     * @param returnListeBtn  Le bouton de retour du formulaire.
+     * @param dialog          Le dialogue pour afficher le formulaire.
+     * @param label           Le label du formulaire.
+     */
+    public void afficheForm(JButton submitListeBtn, JButton returnListeBtn, JDialog dialog, JLabel label) {
         dialog.setModal(true);
         dialog.setUndecorated(true);
         dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -150,16 +178,19 @@ public class ListeVue extends JPanel {
         dialog.pack();
 
         Point location = this.getLocationOnScreen();
-        int x = location.x + this.getWidth()/2 - dialog.getWidth()/2;
-        int y = location.y + this.getHeight()/2 - dialog.getHeight()/2;
+        int x = location.x + this.getWidth() / 2 - dialog.getWidth() / 2;
+        int y = location.y + this.getHeight() / 2 - dialog.getHeight() / 2;
         dialog.setLocation(x, y);
 
         dialog.setVisible(true);
     }
 
+    /**
+     * Récupère le nom de la liste saisi dans le formulaire.
+     *
+     * @return Le nom de la liste.
+     */
     public String getNom() {
         return this.nomField.getText();
     }
-
-
 }

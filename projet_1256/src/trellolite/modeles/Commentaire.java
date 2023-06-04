@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * La classe Commentaire représente un commentaire associé à une carte dans l'application.
  *
- * @author Samuel Boix-Segura
+ * @author Clement Cressault
  */
 public class Commentaire {
     // L'attribut "carte" représente la carte à laquelle le commentaire est associé

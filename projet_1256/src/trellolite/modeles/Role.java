@@ -4,7 +4,7 @@ package trellolite.modeles;
  * L'énumération Role définit les différents rôles qu'un utilisateur peut avoir dans le système Trellolite.
  * Un utilisateur peut être un administrateur, un membre ou un spectateur.
  * 
- * @author Samuel Boix-Segura
+ * @author Mohamed Telli
  */
 public enum Role {
     administrateur, // Un administrateur a généralement des droits complets sur un projet.

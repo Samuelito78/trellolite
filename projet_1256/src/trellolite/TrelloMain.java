@@ -8,8 +8,8 @@ import trellolite.vues.PrincipaleVue;
 import trellolite.controleurs.PrincipaleControleur;
 
 
-/*
- * @auteur Samuel Boix-Segura
+/**
+ * @author Nawfel Kerarsi, Samuel Boix-Segura, Clement Cressault, Mohamed Telli
  */
 
 

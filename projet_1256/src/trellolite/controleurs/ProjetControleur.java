@@ -11,6 +11,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * Classe ProjetControleur qui gère les interactions de l'utilisateur avec le projet dans l'application Trellolite.
+ * C'est un contrôleur qui relie le modèle Projet avec la vue ProjetVue.
+ * Il gère aussi les actions de l'utilisateur sur le bouton du projet, comme l'ouverture du menu contextuel et la création de nouveaux projets.
+ * 
+ * @author Nawfel Kerarsi
+ */
 public class ProjetControleur {
     private ProjetVue vue;
     private Projet projet;
@@ -18,6 +25,16 @@ public class ProjetControleur {
     private JPopupMenu popupMenuProjet;
     private PrincipaleControleur principaleControleur;
     private Principale principale;
+
+    /**
+     * Constructeur pour le contrôleur du projet.
+     * 
+     * @param projet le projet associé à ce contrôleur.
+     * @param principaleControleur le contrôleur principal.
+     * @param principale le modèle principal de l'application.
+     * Il initialise le bouton du projet avec son nom, son icône et son menu contextuel.
+     * Le menu contextuel contient une option qqui permet créer un nouveau projet et des options pour changer vers d'autres projets.
+     */
     public ProjetControleur(Projet projet, PrincipaleControleur principaleControleur, Principale principale) {
         this.projet = projet;
         this.principale = principale;
@@ -80,20 +97,46 @@ public class ProjetControleur {
 
     }
 
+
+
+    /**
+     * Redimensionne une icône à une largeur et une hauteur spécifiées.
+     *
+     * @param icon l'icône à redimensionner.
+     * @param width la nouvelle largeur de l'icône.
+     * @param height la nouvelle hauteur de l'icône.
+     * @return l'icône redimensionnée.
+     */
     private ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
         Image img = icon.getImage();
         Image resizedImage = img.getScaledInstance(width, height,  java.awt.Image.SCALE_SMOOTH);
         return new ImageIcon(resizedImage);
     }
 
+    /**
+     * Renvoie le projet associé à ce contrôleur.
+     *
+     * @return le projet.
+     */
     public Projet getProjet(){
         return this.projet;
     }
 
+    /**
+     * Renvoie la vue du projet associée à ce contrôleur.
+     *
+     * @return la vue du projet.
+     */
     public ProjetVue getVue() {
         return this.vue;
     }
 
+    /**
+     * Met à jour le menu contextuel du projet avec la liste actuelle des projets.
+     * Il ne contient pas le projet actuel et offre une option pour créer un nouveau projet.
+     *
+     * @param projet le projet actuel.
+     */
     public void updateProjetPopupMenu(Projet projet) {
         popupMenuProjet.removeAll();  // Clear existing items
         JMenuItem createProjet = new JMenuItem("Créer un projet");

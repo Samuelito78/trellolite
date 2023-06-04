@@ -1,5 +1,12 @@
 package trellolite.modeles;
 import java.util.ArrayList;
+
+/**
+ * La classe Tableau représente un tableau dans l'application.
+ * Un tableau est associé à un projet et contient des listes.
+ * 
+ * @author Clement Cressault
+ */
 public class Tableau {
 
 	//-----------------------------------------

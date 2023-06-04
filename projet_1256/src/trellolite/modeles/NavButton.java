@@ -4,7 +4,7 @@ package trellolite.modeles;
  * La classe NavButton représente un bouton de navigation dans l'application.
  * Chaque bouton a un nom, une URL d'icône et un état de sélection.
  *
- * @author Samuel Boix-Segura
+ * @author Clement Cressault
  */
 public class NavButton {
 
