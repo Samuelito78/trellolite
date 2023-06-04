@@ -11,15 +11,6 @@ import trellolite.vues.SectionVue;
 
 import javax.swing.*;
 
-/**
- * Le contrôleur de la barre de navigation (NavBar) de l'application Trellolite.
- * Cette classe gère l'interaction entre le modèle NavBar, les vues NavBarVue, ProjetVue et SectionVue,
- * ainsi que le contrôleur NavButtonControleur.
- * Elle crée une instance de NavBar, ajoute des boutons à la barre de navigation,
- * crée le contrôleur NavButtonControleur, et associe les vues NavBarVue et ProjetVue.
- *
- * @author Nawfel Kerarsi
- */
 public class NavBarControleur {
     private NavBar navBar;
     private NavBarVue navBarVue;

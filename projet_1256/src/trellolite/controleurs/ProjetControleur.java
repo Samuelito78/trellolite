@@ -1,5 +1,4 @@
 package trellolite.controleurs;
-
 import trellolite.modeles.Principale;
 import trellolite.modeles.Projet;
 import trellolite.vues.ProjetVue;
@@ -12,35 +11,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-/**
- * Le contrôleur pour la gestion d'un projet.
- * Cette classe est responsable de la gestion de l'interaction entre le modèle Projet et la vue ProjetVue.
- * Elle crée et configure le bouton représentant le projet, y ajoute une icône et des styles,
- * crée une instance de ProjetVue et associe le projet à cette vue.
- * Elle gère également l'affichage d'un menu contextuel pour le projet, permettant de créer de nouveaux projets ou de changer de projet.
- * Elle met à jour le menu contextuel en fonction de la liste des projets disponibles dans la classe Principale.
- * 
- * @author [votre nom]
- */
 public class ProjetControleur {
     private ProjetVue vue;
     private Projet projet;
     private JButton projectButton;
-    
     private JPopupMenu popupMenuProjet;
     private PrincipaleControleur principaleControleur;
     private Principale principale;
-
-    /**
-     * Constructeur de la classe ProjetControleur.
-     * Crée un bouton représentant le projet, configure son apparence visuelle,
-     * crée une instance de ProjetVue et associe le projet à cette vue.
-     * Initialise également le menu contextuel pour le projet.
-     * 
-     * @param projet                l'instance du modèle Projet associée à ce contrôleur.
-     * @param principaleControleur  l'instance du contrôleur PrincipaleControleur.
-     * @param principale            l'instance du modèle Principale contenant la liste des projets.
-     */
     public ProjetControleur(Projet projet, PrincipaleControleur principaleControleur, Principale principale) {
         this.projet = projet;
         this.principale = principale;
@@ -63,6 +40,7 @@ public class ProjetControleur {
         projectButton.setOpaque(true);
         projectButton.setFont(new Font(projectButton.getFont().getName(), projectButton.getFont().getStyle(), 15));
         projectButton.setForeground(Color.white);
+
 
         this.vue = new ProjetVue(projectButton);
         this.vue.setProjet(projet);
@@ -92,7 +70,6 @@ public class ProjetControleur {
                 }
             }
         });
-        
 
         createProjet.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -100,46 +77,23 @@ public class ProjetControleur {
             }
         });
 
-    }
-    
 
-    /**
-     * Redimensionne une ImageIcon à la taille spécifiée.
-     * 
-     * @param icon   l'ImageIcon à redimensionner.
-     * @param width  la largeur souhaitée.
-     * @param height la hauteur souhaitée.
-     * @return       l'ImageIcon redimensionnée.
-     */
+    }
+
     private ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
         Image img = icon.getImage();
-        Image resizedImage = img.getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH);
+        Image resizedImage = img.getScaledInstance(width, height,  java.awt.Image.SCALE_SMOOTH);
         return new ImageIcon(resizedImage);
     }
 
-    /**
-     * Renvoie l'instance du modèle Projet associée à ce contrôleur.
-     * 
-     * @return l'instance du modèle Projet.
-     */
-    public Projet getProjet() {
+    public Projet getProjet(){
         return this.projet;
     }
 
-    /**
-     * Renvoie l'instance de la vue ProjetVue associée à ce contrôleur.
-     * 
-     * @return l'instance de la vue ProjetVue.
-     */
     public ProjetVue getVue() {
         return this.vue;
     }
 
-    /**
-     * Met à jour le menu contextuel pour le projet avec la liste des projets disponibles dans la classe Principale.
-     * 
-     * @param projet le projet actuel (pour éviter de l'ajouter dans le menu contextuel).
-     */
     public void updateProjetPopupMenu(Projet projet) {
         popupMenuProjet.removeAll();  // Clear existing items
         JMenuItem createProjet = new JMenuItem("Créer un projet");
