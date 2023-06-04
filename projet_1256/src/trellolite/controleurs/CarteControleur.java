@@ -24,7 +24,7 @@ public class CarteControleur {
     private JButton submitEtiquetteBtn;
     private JButton returnEtiquetteBtn;
     private JDialog dialog;
-    CarteControleur(Carte carte, Tableau tableau, SectionVue sectionVue, ListeVue listeVue, Utilisateur utilisateur){
+    CarteControleur(Carte carte, Tableau tableau, SectionVue sectionVue, ListeVue listeVue, Utilisateur utilisateur, ListeControleur listeControleur){
         this.commentaireList = new ArrayList<>();
         this.etiquetteList = new ArrayList<>();
         this.submitCommentaireBtn = new JButton("Commenter");
@@ -138,6 +138,7 @@ public class CarteControleur {
                 carte.setDescription(carteVue.getDescriptionCarteField());
                 carte.setDatedebut(carteVue.getDebutDate());
                 carte.setDatefin(carteVue.getFinDate());
+                listeControleur.updateCarteNom(carteVue.getNomCarteField());
                 sectionVue.afficheListe(listeVue);
             }
         });
@@ -157,6 +158,7 @@ public class CarteControleur {
                         submitBtn
                     );
     }
+
 
     public JPanel getVue(){
         return this.carteVue;

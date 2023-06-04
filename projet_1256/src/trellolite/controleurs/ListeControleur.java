@@ -19,6 +19,7 @@ import trellolite.vues.TableauVue;
 
 public class ListeControleur {
     private JButton creeListeBtn;
+    private JButton carteBtn;
     private ListeVue listeVue;
     private JDialog dialog;
     private JDialog dialog2;
@@ -108,15 +109,12 @@ public class ListeControleur {
 
         for (Carte carte : liste.getCartes()) {
             System.out.println("Ajout de "+ carte.getNom()+" dans "+ liste.getNom());
-            JButton carteBtn = new JButton(carte.getNom());
+            carteBtn = new JButton(carte.getNom());
             carteBtn.setPreferredSize(new Dimension(Integer.MAX_VALUE, 40));
             carteBtn.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
             carteBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
             carteBtn.setBackground(Color.white);
             carteBtn.setOpaque(true);
-
-
-
             carteBtnPanel.add(carteBtn);
         }
 
@@ -184,14 +182,14 @@ public class ListeControleur {
                 Carte nouvelleCarte = new Carte(listeVue.getNom());
                 liste.ajouterCarte(nouvelleCarte);
 
-                JButton carteBtn = new JButton(nouvelleCarte.getNom());
+                carteBtn = new JButton(nouvelleCarte.getNom());
                 carteBtn.setPreferredSize(new Dimension(Integer.MAX_VALUE, 40));
                 carteBtn.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
                 carteBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
                 carteBtn.setBackground(Color.white);
                 carteBtn.setOpaque(true);
 
-                CarteControleur carteControleur = new CarteControleur(nouvelleCarte, tableau, sectionVue, listeVue, utilisateur);
+                CarteControleur carteControleur = new CarteControleur(nouvelleCarte, tableau, sectionVue, listeVue, utilisateur, ListeControleur.this);
 
                 carteBtn.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
@@ -245,6 +243,8 @@ public class ListeControleur {
 
         listeVue.afficheForm(submitCarteBtn, returnCarteBtn, dialog, label);
 
+
+
         return dialog;
     }
 
@@ -252,5 +252,11 @@ public class ListeControleur {
 
     public JPanel getCreeListeBtn(){
         return this.listeVue;
+    }
+
+    public void updateCarteNom(String nouveauNom) {
+        if (carteBtn != null) {
+            carteBtn.setText(nouveauNom);
+        }
     }
 }
