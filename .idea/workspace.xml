@@ -1,93 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb74323e-968a-4bef-919b-7b7a1ba730fd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/TrelloMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/CarteControleur$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/CarteControleur$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/CarteControleur$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/CarteControleur$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/CarteControleur$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/CarteControleur$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/CarteControleur$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/CarteControleur$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/CarteControleur.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ListeControleur$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ListeControleur$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ListeControleur$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ListeControleur$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ListeControleur$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ListeControleur$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ListeControleur$7$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ListeControleur$7$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ListeControleur$7$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ListeControleur$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ListeControleur$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ListeControleur.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/MembreControleur$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/MembreControleur$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/MembreControleur.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/NavBarControleur.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/NavButtonControleur$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/NavButtonControleur.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/PrincipaleControleur$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/PrincipaleControleur$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/PrincipaleControleur.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ProjetControleur.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ReunionControleur$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ReunionControleur$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ReunionControleur$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/ReunionControleur.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/TableauControleur$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/TableauControleur$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/TableauControleur$3$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/TableauControleur$3$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/TableauControleur$3$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/TableauControleur$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/controleurs/TableauControleur.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/modeles/Carte.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/modeles/Commentaire.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/modeles/Etiquette.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/modeles/Liste.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/modeles/NavBar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/modeles/NavButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/modeles/Principale.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/modeles/Projet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/modeles/Reunion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/modeles/Role.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/modeles/Tableau.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/modeles/Utilisateur.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/ressources/images/iconReturn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/ressources/images/ligne18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/styles/RoundJLabel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/vues/CarteVue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/vues/ListeVue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/vues/MembreVue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/vues/NavBarVue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/vues/NavButtonVue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/vues/PrincipaleVue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/vues/ProjetVue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/vues/ReunionVue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/vues/SectionVue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/out/production/projet_1256/trellolite/vues/TableauVue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/projet_1256.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/src/trellolite/TrelloMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet_1256/src/trellolite/TrelloMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/src/trellolite/controleurs/ListeControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet_1256/src/trellolite/controleurs/ListeControleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/src/trellolite/controleurs/NavButtonControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet_1256/src/trellolite/controleurs/NavButtonControleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/src/trellolite/controleurs/ParametreControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet_1256/src/trellolite/controleurs/ParametreControleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/src/trellolite/controleurs/ProjetControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet_1256/src/trellolite/controleurs/ProjetControleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/src/trellolite/modeles/Carte.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet_1256/src/trellolite/modeles/Carte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/src/trellolite/modeles/Etiquette.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet_1256/src/trellolite/modeles/Etiquette.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/src/trellolite/ressources/images/iconReturn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/src/trellolite/ressources/images/ligne18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/src/trellolite/styles/RoundJLabel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/src/trellolite/vues/NavBarVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet_1256/src/trellolite/vues/NavBarVue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/src/trellolite/vues/ParametreVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet_1256/src/trellolite/vues/ParametreVue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/src/trellolite/vues/PrincipaleVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet_1256/src/trellolite/vues/PrincipaleVue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/src/trellolite/vues/ProjetVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet_1256/src/trellolite/vues/ProjetVue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_1256/src/trellolite/vues/TableauVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/projet_1256/src/trellolite/vues/TableauVue.java" afterDir="false" />
-    </list>
+    <list default="true" id="bb74323e-968a-4bef-919b-7b7a1ba730fd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,6 +37,7 @@
       <updated>1685023019651</updated>
       <workItem from="1685023024103" duration="66000" />
       <workItem from="1685910584187" duration="112000" />
+      <workItem from="1685910888390" duration="25000" />
     </task>
     <servers />
   </component>
