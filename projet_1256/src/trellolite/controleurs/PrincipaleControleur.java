@@ -26,6 +26,7 @@ public class PrincipaleControleur {
     private JButton submitButton;
     private ProjetControleur controleurProjet;
     private NavBarControleur controleurNavBar;
+    private Projet projetActuel;
 
     /**
      * Constructeur de la classe PrincipaleControleur.
@@ -59,13 +60,11 @@ public class PrincipaleControleur {
                 Role membre = Role.membre;
                 Role spectateur = Role.spectateur;
                 Utilisateur utilisateur = new Utilisateur(1, "Doe", "Jhon", "jhon@doe.com","1234", administrateur);
-                controleurProjet = new ProjetControleur(projet);
+                controleurProjet = new ProjetControleur(projet, PrincipaleControleur.this, modele);
 
                 Utilisateur utilisateur2 = new Utilisateur(1, "Alain", "Terrieur", "alain@terrieur.com","1234", membre);
-                controleurProjet = new ProjetControleur(projet);
 
                 Utilisateur utilisateur3 = new Utilisateur(1, "Alex", "Terrieur", "alex@terrieur.com","1234", spectateur);
-                controleurProjet = new ProjetControleur(projet);
 
                 projet.ajouterUser(utilisateur);
                 projet.ajouterUser(utilisateur2);
@@ -85,5 +84,15 @@ public class PrincipaleControleur {
      */
     public PrincipaleVue getVue() {
         return this.vue;
+    }
+    public JButton getSubmitButton(){
+        return this.submitButton;
+    }
+
+    public void changeProjet(Projet nouveauProjet) {
+        this.projetActuel = nouveauProjet;
+        controleurNavBar.setProjet(nouveauProjet);
+        controleurProjet.updateProjetPopupMenu(nouveauProjet);
+        controleurProjet.getVue().setProjectButton(nouveauProjet.getNom());
     }
 }

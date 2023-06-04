@@ -23,12 +23,18 @@ public class ProjetVue extends JPanel{
      * @param projectButton Le bouton de projet à afficher dans la vue.
      */
     public ProjetVue(JButton projectButton) {
+        this.projectButton = projectButton;
         setLayout(new BorderLayout());
         setBackground(Color.decode("#252526"));
         add(projectButton);
     }
 
     public void setProjet(Projet projet) {
+
+    }
+
+    public void setProjectButton(String nomProjet){
+        projectButton.setText("<html><b>"+nomProjet+"<b><html>");
     }
 
 

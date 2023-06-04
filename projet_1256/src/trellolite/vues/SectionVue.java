@@ -50,22 +50,7 @@ public class SectionVue extends JPanel {
         repaint();
     }
 
-    /**
-     * Affiche la vue des activités.
-     */
-    public void afficheActivites() {
-        removeAll();
-        add(label);
-        label.setText("Réunions");
-        revalidate();
-        repaint();
-    }
-
-    /**
-     * Affiche la vue des membres.
-     * @param membreVue le JPanel représentant la vue des membres.
-     */
-    public void afficheMembres(JPanel membreVue) {
+    public void afficheMembres(JPanel membreVue){
         removeAll();
         add(membreVue);
         revalidate();
@@ -83,13 +68,9 @@ public class SectionVue extends JPanel {
         repaint();
     }
 
-    /**
-     * Affiche la vue des paramètres.
-     */
-    public void afficheParamètres() {
+    public void afficheParamètres(JPanel parametreVue){
         removeAll();
-        add(label);
-        label.setText("Paramètres");
+        add(parametreVue);
         revalidate();
         repaint();
     }
