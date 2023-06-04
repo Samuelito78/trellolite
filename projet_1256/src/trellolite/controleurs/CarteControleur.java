@@ -25,6 +25,7 @@ public class CarteControleur {
     private JButton returnEtiquetteBtn;
     private JDialog dialog;
     CarteControleur(Carte carte, Tableau tableau, SectionVue sectionVue, ListeVue listeVue, Utilisateur utilisateur, ListeControleur listeControleur){
+        this.carte = carte;
         this.commentaireList = new ArrayList<>();
         this.etiquetteList = new ArrayList<>();
         this.submitCommentaireBtn = new JButton("Commenter");

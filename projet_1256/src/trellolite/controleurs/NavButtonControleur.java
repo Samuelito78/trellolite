@@ -21,14 +21,20 @@ public class NavButtonControleur {
     private NavButtonVue navButtonVue;
     private NavBar navBar;
     private SectionVue sectionVue;
-    NavButtonControleur(NavBar navBar, SectionVue sectionVue, Projet projet, Utilisateur utilisateur){
+    private TableauControleur tableauControleur;
+    private MembreControleur membreControleur;
+    private ReunionControleur reunionControleur;
+    private ParametreControleur parametreControleur;
+
+    NavButtonControleur(NavBar navBar, SectionVue sectionVue, Projet projet, Utilisateur utilisateur, ProjetVue projetVue){
         this.sectionVue = sectionVue;
         this.navBar = navBar;
         ArrayList<JButton> navButtonsList = new ArrayList<>();
         ArrayList<NavButton> navButtons = navBar.getButtons();
-        TableauControleur tableauControleur = new TableauControleur(projet, sectionVue, utilisateur);
-        ReunionControleur reunionControleur = new ReunionControleur(projet);
-        MembreControleur membreControleur = new MembreControleur(projet);
+        this.tableauControleur = new TableauControleur(projet, sectionVue, utilisateur);
+        this.reunionControleur = new ReunionControleur(projet);
+        this.membreControleur = new MembreControleur(projet);
+        this.parametreControleur = new ParametreControleur(projet, projetVue);
 
         for (NavButton button : navButtons) {
             System.out.println(button.getName());
@@ -75,9 +81,6 @@ public class NavButtonControleur {
                         case "Tableau de bord":
                             sectionVue.afficheTableaux(tableauControleur.getCreeTableauBtn());
                             break;
-                        case "Activité":
-                            sectionVue.afficheActivites();
-                            break;
                         case "Membres":
                             sectionVue.afficheMembres(membreControleur.getVue());
                             break;
@@ -85,7 +88,7 @@ public class NavButtonControleur {
                             sectionVue.afficheReunions(reunionControleur.getCreeReunionBtn());
                             break;
                         case "Paramètres":
-                            sectionVue.afficheParamètres();
+                            sectionVue.afficheParamètres(parametreControleur.getVue());
                             break;
                         default:
                             break;
@@ -99,5 +102,16 @@ public class NavButtonControleur {
     }
     public NavButtonVue getVue() {
         return this.navButtonVue;
+    }
+
+    public TableauControleur getTableauControleur(){
+        return this.tableauControleur;
+    }
+
+    public void setProjet(Projet projet){
+        tableauControleur.setProjet(projet);
+        membreControleur.setProjet(projet);
+        reunionControleur.setProjet(projet);
+        parametreControleur.setProjet(projet);
     }
 }

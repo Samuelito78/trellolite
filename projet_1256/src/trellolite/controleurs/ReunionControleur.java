@@ -19,7 +19,12 @@ public class ReunionControleur {
     private Reunion reunion;
     private JDialog dialog;
     private ArrayList<JButton> reunionBtnList;
+    private Projet projet;
+
+    private String[] couleurs;
     public ReunionControleur(Projet projet){
+        this.projet = projet;
+        this.couleurs = new String[] {"#7EA6E0", "#EA6B66", "#E8A566", "#97D077", "#9D7EE0", "#49618F", "#833551", "#7D4040"};
         this.creeReunionBtn = new JButton("Nouvelle réunion");
         this.submitReunionBtn = new JButton("Créer la réunion");
         this.returnReunionBtn = new JButton("Retour");
@@ -79,7 +84,34 @@ public class ReunionControleur {
         });
 
     }
+    public void setProjet(Projet projet) {
+        this.projet = projet; // Mettre à jour le projet
 
+        reunionBtnList.clear(); // Vider la liste des boutons des réunions existantes
+
+        int indexCouleur = 0;
+
+        // Créer de nouveaux boutons pour les réunions du nouveau projet
+        for (Reunion reunion : projet.getReunions()) {
+            JButton reunionBtn = new JButton("<html><span style='font-size:11px'><b>" + reunion.getNom() + "</b></span><html>");
+            reunionBtn.setBorder(new EmptyBorder(0, 10, 20, 0));
+            reunionBtn.setBackground(Color.decode(couleurs[indexCouleur]));
+            reunionBtn.setForeground(Color.WHITE);
+            reunionBtn.setMargin(new Insets(10, 10, 10, 10));
+            reunionBtn.setHorizontalAlignment(SwingConstants.LEFT);
+            reunionBtn.setVerticalAlignment(SwingConstants.BOTTOM);
+            reunionBtn.setOpaque(true);
+            reunionBtnList.add(reunionBtn);
+
+            indexCouleur++;
+            if (indexCouleur >= couleurs.length) {
+                indexCouleur = 0;
+            }
+        }
+
+        // Mettre à jour l'affichage des réunions
+        reunionVue.refreshPage(reunionBtnList);
+    }
     public JPanel getCreeReunionBtn(){
         return this.reunionVue;
     }

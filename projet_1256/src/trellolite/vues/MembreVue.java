@@ -91,5 +91,28 @@ public class MembreVue extends JPanel {
         add(bodyPanel, BorderLayout.CENTER);
     }
 
+    public void setUtilisateurs(ArrayList<String> listesutilisateurs, ArrayList<JComboBox<String>> listeComboBox) {
+        membresPanel.removeAll(); // Supprime tous les membres existants
+
+        // Ajoute de nouveaux membres
+        for (int i = 0; i < listesutilisateurs.size(); i++) {
+            JPanel membrePanel = new JPanel(new BorderLayout());
+            membrePanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 70));
+            JLabel nomEtPrenomLabel = new JLabel("<html><b style='font-size: 11px'>" + listesutilisateurs.get(i) + "</b><html>");
+            nomEtPrenomLabel.setForeground(Color.white);
+            nomEtPrenomLabel.setBorder(new EmptyBorder(0, 20, 0, 0));
+
+            membrePanel.add(listeComboBox.get(i), BorderLayout.EAST);
+            membrePanel.add(nomEtPrenomLabel);
+            membrePanel.setBackground(Color.decode("#111111"));
+
+            membresPanel.add(membrePanel);
+        }
+
+        // Force le rafraîchissement du panneau membresPanel
+        membresPanel.revalidate();
+        membresPanel.repaint();
+    }
+
 
 }

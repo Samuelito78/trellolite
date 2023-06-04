@@ -23,7 +23,11 @@ public class TableauControleur {
     private JDialog dialog;
     private ArrayList<JButton> tableauBtnList;
     private SectionVue sectionVue;
+    private Projet projet;
+    Utilisateur utilisateur;
     public TableauControleur(Projet projet, SectionVue sectionVue, Utilisateur utilisateur){
+        this.projet = projet;
+        this.utilisateur = utilisateur;
         this.creeTableauBtn = new JButton("Nouveau tableau");
         this.submitTableauBtn = new JButton("Créer le tableau");
         this.returnTableauBtn = new JButton("Retour");
@@ -136,5 +140,77 @@ public class TableauControleur {
 
     public JPanel getCreeTableauBtn(){
         return this.tableauVue;
+    }
+    public void setProjet(Projet projet){
+        this.projet = projet;
+
+        // Clear the list of tableau buttons
+        tableauBtnList.clear();
+        String[] couleurs = {"#7EA6E0", "#EA6B66", "#E8A566", "#97D077", "#9D7EE0", "#49618F", "#833551", "#7D4040"};
+        int indexCouleur = 0;
+
+        // Create new buttons for the tableaux of the new project
+        for (Tableau tableau : projet.getTableaux()) {
+            // Creation et personalisation du bouton
+            JButton tableauBtn = new JButton("<html><span style='font-size:11px'><b>"+tableau.getNom()+"</b></span><html>");
+            tableauBtn.setBorder(new EmptyBorder(0, 10, 20, 0));
+            tableauBtn.setBackground(Color.decode(couleurs[indexCouleur]));
+            tableauBtn.setForeground(Color.WHITE);
+            tableauBtn.setMargin(new Insets(10, 10, 10, 10)); // Définir une marge autour du texte du bouton
+            tableauBtn.setHorizontalAlignment(SwingConstants.LEFT); // Aligner le texte à gauche
+            tableauBtn.setVerticalAlignment(SwingConstants.BOTTOM);
+            tableauBtn.setOpaque(true);
+
+            // Creation objet type ListeControleur
+            ListeControleur listeControleur = new ListeControleur(tableau, sectionVue, utilisateur);
+            // Ecoute de l'événement tableauBtn
+            tableauBtn.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    sectionVue.afficheListe(listeControleur.getCreeListeBtn());
+                }
+            });
+
+            // Créer un menu contextuel
+            JPopupMenu popupMenu = new JPopupMenu();
+            popupMenu.setBackground(Color.black);
+
+            // Ajouter une option de suppression au menu contextuel
+            JMenuItem deleteItem = new JMenuItem("Supprimer le tableau");
+            deleteItem.setBackground(Color.red);
+            deleteItem.setForeground(Color.white);
+            deleteItem.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    // Logique pour supprimer le tableau du projet
+                    projet.supprTableau(tableau);
+
+                    // Supprimer le bouton correspondant à ce tableau de la liste tableauBtnList
+                    tableauBtnList.remove(tableauBtn);
+
+                    // Actualiser l'interface utilisateur pour refléter la suppression du tableau
+                    tableauVue.refreshPage(tableauBtnList);
+                }
+            });
+
+            popupMenu.add(deleteItem);
+
+            // Ajouter un MouseListener à tableauBtn pour afficher le menu contextuel lors d'un clic droit
+            tableauBtn.addMouseListener(new MouseAdapter() {
+                public void mousePressed(MouseEvent me) {
+                    if (SwingUtilities.isRightMouseButton(me)) {
+                        popupMenu.show(me.getComponent(), me.getX(), me.getY());
+                    }
+                }
+            });
+
+            tableauBtnList.add(tableauBtn);
+            indexCouleur++;
+            if (indexCouleur >= couleurs.length) { // Si nous avons utilisé toutes les couleurs, recommençons depuis le début
+                indexCouleur = 0;
+            }
+        }
+        // Refresh the view
+        tableauVue.refreshPage(tableauBtnList);
+
+
     }
 }
