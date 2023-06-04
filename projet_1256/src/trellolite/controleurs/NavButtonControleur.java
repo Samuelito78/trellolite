@@ -20,6 +20,8 @@ import java.util.ArrayList;
  * Controleur qui gère les interactions de l'utilisateur avec les boutons de navigation dans l'application Trellolite.
  * Il relie le modèle NavButton avec la vue NavButtonVue.
  * Il gère aussi les actions de navigation entre les différentes sections de l'application (tableau, membres, réunions, paramètres).
+ * 
+ * @author Nawfel Kerarsi
  */
 public class NavButtonControleur {
     private NavButtonVue navButtonVue;

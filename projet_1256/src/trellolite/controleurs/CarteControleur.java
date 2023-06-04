@@ -10,7 +10,7 @@
  * @param utilisateur        L'utilisateur actuel.
  * @param listeControleur    Le contrôleur de liste.
  *
- * L'auteur de cette classe est Nawfel Kerarsi.
+ * @author Nawfel Kerarsi.
  */
 package trellolite.controleurs;
 

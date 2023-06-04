@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 /**
  * Le contrôleur des paramètres d'un projet.
  * Permet de gérer les interactions et les modifications des paramètres d'un projet.
+ * 
  * @author Nawfel Kerarsi
  */
 public class ParametreControleur {

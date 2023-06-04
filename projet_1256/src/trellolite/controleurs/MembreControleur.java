@@ -15,6 +15,7 @@ import java.util.ArrayList;
 /**
  * Le contrôleur des membres d'un projet.
  * Permet de gérer les membres d'un projet, leurs rôles et leurs interactions.
+ * 
  * @author Samuel Boix-Segura
  */
 public class MembreControleur {
