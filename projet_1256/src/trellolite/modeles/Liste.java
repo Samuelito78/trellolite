@@ -1,19 +1,43 @@
 package trellolite.modeles;
 import java.util.ArrayList;
+
 public class Liste {
-    // Attributs
+
+    //-----------------------------------------
+	// ATTRIBUTS
+	//-----------------------------------------
     Tableau tableau;
     ArrayList<Carte> cartes;
     private String nom;
 
-    // Constructeur
+
+
+    //--------------------------------------------
+	// 				 CONSTRUCTEUR
+	//--------------------------------------------
+
+    /**
+     * Constructeur complet pour la classe Liste.
+     * Initialise toutes les variables d'instance avec les paramètres donnés.
+     * 
+     * @param nom Le nom de la liste.
+     * @param cartes La liste des cartes associées à la liste.
+     * @param tableau Le tableau auquel la liste est associée.
+     */
     public Liste(String nom, ArrayList<Carte> cartes, Tableau tableau) {
         this.setNom(nom);
         this.cartes = cartes;
         this.tableau = tableau;
-
     }
 
+    /**
+     * Constructeur partiel pour la classe Liste.
+     * Initialise le nom et le tableau avec les paramètres donnés.
+     * Initialise une liste vide de cartes.
+     *
+     * @param nom Le nom de la liste.
+     * @param tableau Le tableau auquel la liste est associée.
+     */
     public Liste(String nom, Tableau tableau) {
         this.setNom(nom);
         this.tableau = tableau;
@@ -21,7 +45,11 @@ public class Liste {
     }
 
 
-    // Getter et Setter pour l'attribut "nom"
+
+    //---------------------------------------------
+	// 			   GETTERS / SETTERS
+	//---------------------------------------------
+
     public String getNom() {
         return nom;
     }

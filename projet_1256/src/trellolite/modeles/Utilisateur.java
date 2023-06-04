@@ -1,15 +1,37 @@
 package trellolite.modeles;
 import java.util.ArrayList;
-
-/*
- * @auteur Samuel Boix-Segura
+/**
+ * La classe Utilisateur représente un utilisateur de l'application Trellolite. 
+ * Chaque utilisateur a un id, un nom, un prénom, un email, un mot de passe et un rôle.
+ * 
+ * @author Samuel Boix-Segura
  */
-
 public class Utilisateur {
+	
 	//-----------------------------------------
-	// CONSTRUCTEUR
+	// ATTRIBUTS
 	//-----------------------------------------
-	public Utilisateur(int id, String nom, String prenom, String email, String mdp, Role role) {
+	private double id;
+	private String nom;
+	private String prenom;
+	private String email;
+	private String mdp;
+	private Role role;	
+
+	//--------------------------------------------
+	// 				 CONSTRUCTEURS
+	//--------------------------------------------
+
+    /**
+     * Constructeur de la classe Utilisateur avec tous les paramètres nécessaires.
+     * @param id L'identifiant unique de l'utilisateur.
+     * @param nom Le nom de l'utilisateur.
+     * @param prenom Le prénom de l'utilisateur.
+     * @param email L'email de l'utilisateur.
+     * @param mdp Le mot de passe de l'utilisateur.
+     * @param role Le rôle de l'utilisateur.
+     */
+	public Utilisateur(double id, String nom, String prenom, String email, String mdp, Role role) {
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -17,31 +39,26 @@ public class Utilisateur {
 		this.mdp = mdp;
 		this.role = role;
 	}
-	
-	//-----------------------------------------
-	// ATTRIBUTS
-	//-----------------------------------------
-	//
-	private double id;
-	private String nom;
-	private String prenom;
-	private String email;
-	private String mdp;
-	private Role role;	
-	
-	//--------------------------------------------
-	// 				 CONSTRUCTEUR
-	//--------------------------------------------
-	
-    public Utilisateur(double id,String nom, String prenom, String email, String mdp,Role role, ArrayList<Commentaire> commentaire, ArrayList<Reunion> reunion) {
-        this.setId(id);
-    	this.setNom(nom);
-        this.setPrenom(prenom);
-        this.setEmail(email);
-        this.setMdp(mdp);
-        this.setRole(role);
-    }
 
+    /**
+     * Second constructeur de la classe Utilisateur. Il est utilisé lorsque les commentaires et les réunions sont ajoutés plus tard.
+     * @param id L'identifiant unique de l'utilisateur.
+     * @param nom Le nom de l'utilisateur.
+     * @param prenom Le prénom de l'utilisateur.
+     * @param email L'email de l'utilisateur.
+     * @param mdp Le mot de passe de l'utilisateur.
+     * @param role Le rôle de l'utilisateur.
+     * @param commentaire La liste des commentaires de l'utilisateur.
+     * @param reunion La liste des réunions de l'utilisateur.
+     */
+    public Utilisateur(double id, String nom, String prenom, String email, String mdp, Role role, ArrayList<Commentaire> commentaire, ArrayList<Reunion> reunion) {
+        this.id = id;
+    	this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.mdp = mdp;
+        this.role = role;
+    }
 
 
 	//---------------------------------------------

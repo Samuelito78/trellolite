@@ -1,13 +1,35 @@
 package trellolite.modeles;
 import java.util.ArrayList;
+
+/**
+ * La classe Etiquette représente une étiquette dans le système Trellolite.
+ * Une étiquette est simplement définie par son nom.
+ * 
+ */
 public class Etiquette {
-    // Attributs
+
+    //-----------------------------------------
+	// ATTRIBUTS
+	//-----------------------------------------
     private String nom;
 
-    // Constructeur
+
+
+    //--------------------------------------------
+	// 				 CONSTRUCTEUR
+	//--------------------------------------------
+    /**
+     * Constructeur de la classe Etiquette.
+     * Initialise le nom de l'étiquette avec le paramètre donné.
+     *
+     * @param nom Le nom de l'étiquette.
+     */
     public Etiquette(String nom) {
         this.setNom(nom);
     }
+
+
+    
     //---------------------------------------------
     // 			   		METHODES
     //---------------------------------------------
@@ -20,11 +42,5 @@ public class Etiquette {
     public void setNom(String nom) {
         this.nom = nom;
     }
-
-    // Getter et Setter pour l'attribut "couleur"
-
-
-
-
 
 }

@@ -2,29 +2,50 @@ package trellolite.modeles;
 
 import java.util.ArrayList;
 
+/**
+ * La classe NavBar représente une barre de navigation dans l'application.
+ * Une barre de navigation est constituée d'une liste de boutons de navigation.
+ *
+ * @author Samuel Boix-Segura
+ */
 public class NavBar {
 
+    // La liste des boutons de navigation
     private ArrayList<NavButton> buttons;
 
-    // Constructeur
+    /**
+     * Constructeur de la classe NavBar.
+     * Initialise la liste des boutons de navigation comme étant vide.
+     */
     public NavBar() {
         this.buttons = new ArrayList<>();
     }
 
-    // Ajouter un bouton à la barre de navigation
+    /**
+     * Ajoute un bouton à la barre de navigation.
+     *
+     * @param button Le bouton de navigation à ajouter.
+     */
     public void addButton(NavButton button) {
         this.buttons.add(button);
     }
 
-    // Supprimer un bouton de la barre de navigation
+    /**
+     * Supprime un bouton de la barre de navigation.
+     *
+     * @param button Le bouton de navigation à supprimer.
+     */
     public void removeButton(NavButton button) {
         this.buttons.remove(button);
     }
 
-    // Obtenir la liste des boutons de la barre de navigation
+    /**
+     * Récupère la liste des boutons de navigation.
+     *
+     * @return La liste des boutons de navigation.
+     */
     public ArrayList<NavButton> getButtons() {
         return buttons;
     }
 
-    // Autres méthodes liées à la gestion des boutons...
 }

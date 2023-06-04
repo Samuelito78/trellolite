@@ -13,7 +13,17 @@ public class Projet {
     private String type;
     private String description;
 
-    // Constructeurs
+        /**
+     * Constructeur complet pour la classe Projet. 
+     * Initialise toutes les variables d'instance avec les paramètres donnés.
+     * 
+     * @param nom Le nom du projet.
+     * @param type Le type du projet.
+     * @param description La description du projet.
+     * @param utilisateurs La liste des utilisateurs associés au projet.
+     * @param reunions La liste des réunions associées au projet.
+     * @param tableaux La liste des tableaux associés au projet.
+     */
     public Projet(String nom, String type, String description, ArrayList<Utilisateur> utilisateurs, ArrayList<Reunion> reunions, ArrayList<Tableau> tableaux) {
         this.setNom(nom);
         this.setDescription(description);
@@ -22,6 +32,16 @@ public class Projet {
         this.reunions = reunions;
         this.tableaux = tableaux;
     }
+
+    /**
+     * Constructeur partiel pour la classe Projet. 
+     * Initialise les variables d'instance de nom, type, et description avec les paramètres donnés.
+     * Initialise des listes vides pour les utilisateurs, les réunions et les tableaux.
+     *
+     * @param nom Le nom du projet.
+     * @param type Le type du projet.
+     * @param description La description du projet.
+     */
     public Projet(String nom, String type, String description) {
         this.setNom(nom);
         this.setDescription(description);
@@ -31,6 +51,15 @@ public class Projet {
         this.reunions = new ArrayList<>();
     }
 
+    /**
+     * Constructeur spécial pour la classe Projet.
+     * Initialise la variable d'instance de nom avec le paramètre donné.
+     * Initialise un utilisateur admin comme premier utilisateur du projet.
+     * Initialise un tableau vide.
+     *
+     * @param nom Le nom du projet.
+     * @param admin L'utilisateur qui est défini comme l'administrateur du projet.
+     */
     public Projet(String nom, Utilisateur admin) {
 		this.nom = nom;
 		utilisateurs = new ArrayList<Utilisateur>();
@@ -39,6 +68,7 @@ public class Projet {
 		tableaux = new ArrayList<Tableau>();
 		tableaux.add(new Tableau());
 	}
+
 
 
 
