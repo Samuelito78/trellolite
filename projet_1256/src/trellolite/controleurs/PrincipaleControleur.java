@@ -38,10 +38,21 @@ public class PrincipaleControleur {
                 Projet projet = new Projet(nom, type, description);
                 modele.addProjet(projet);
                 sectionVue = new SectionVue();
-                Role role = Role.administrateur;
-                Utilisateur utilisateur = new Utilisateur(1, "Doe", "Jhon", "jhon@doe.com","1234", role);
+                Role administrateur = Role.administrateur;
+                Role membre = Role.membre;
+                Role spectateur = Role.spectateur;
+                Utilisateur utilisateur = new Utilisateur(1, "Doe", "Jhon", "jhon@doe.com","1234", administrateur);
                 controleurProjet = new ProjetControleur(projet);
+
+                Utilisateur utilisateur2 = new Utilisateur(1, "Alain", "Terrieur", "alain@terrieur.com","1234", membre);
+                controleurProjet = new ProjetControleur(projet);
+
+                Utilisateur utilisateur3 = new Utilisateur(1, "Alex", "Terrieur", "alex@terrieur.com","1234", spectateur);
+                controleurProjet = new ProjetControleur(projet);
+
                 projet.ajouterUser(utilisateur);
+                projet.ajouterUser(utilisateur2);
+                projet.ajouterUser(utilisateur3);
                 controleurNavBar = new NavBarControleur(controleurProjet.getVue(), sectionVue, projet, utilisateur);
 
                 vue.showNavBar(controleurNavBar.getVue());

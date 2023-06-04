@@ -29,6 +29,7 @@ public class ListeControleur {
     private String[] couleurs = {"#757575","#7EA6E0","#67AB66","#7EA6E0", "#EA6B66", "#E8A566", "#97D077", "#9D7EE0", "#49618F", "#833551", "#7D4040"};
     private int indexCouleur = 0;
     private Utilisateur utilisateur;
+    private CarteControleur carteControleur;
 
     public ListeControleur(Tableau tableau, SectionVue sectionVue, Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
@@ -108,13 +109,14 @@ public class ListeControleur {
         });
 
         for (Carte carte : liste.getCartes()) {
-            System.out.println("Ajout de "+ carte.getNom()+" dans "+ liste.getNom());
             carteBtn = new JButton(carte.getNom());
             carteBtn.setPreferredSize(new Dimension(Integer.MAX_VALUE, 40));
             carteBtn.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
             carteBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
             carteBtn.setBackground(Color.white);
             carteBtn.setOpaque(true);
+
+
             carteBtnPanel.add(carteBtn);
         }
 
@@ -189,7 +191,7 @@ public class ListeControleur {
                 carteBtn.setBackground(Color.white);
                 carteBtn.setOpaque(true);
 
-                CarteControleur carteControleur = new CarteControleur(nouvelleCarte, tableau, sectionVue, listeVue, utilisateur, ListeControleur.this);
+                carteControleur = new CarteControleur(nouvelleCarte, tableau, sectionVue, listeVue, utilisateur, ListeControleur.this);
 
                 carteBtn.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {

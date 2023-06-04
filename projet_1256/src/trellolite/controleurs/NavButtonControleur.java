@@ -26,9 +26,9 @@ public class NavButtonControleur {
         this.navBar = navBar;
         ArrayList<JButton> navButtonsList = new ArrayList<>();
         ArrayList<NavButton> navButtons = navBar.getButtons();
-
         TableauControleur tableauControleur = new TableauControleur(projet, sectionVue, utilisateur);
         ReunionControleur reunionControleur = new ReunionControleur(projet);
+        MembreControleur membreControleur = new MembreControleur(projet);
 
         for (NavButton button : navButtons) {
             System.out.println(button.getName());
@@ -79,7 +79,7 @@ public class NavButtonControleur {
                             sectionVue.afficheActivites();
                             break;
                         case "Membres":
-                            sectionVue.afficheMembres();
+                            sectionVue.afficheMembres(membreControleur.getVue());
                             break;
                         case "Réunions":
                             sectionVue.afficheReunions(reunionControleur.getCreeReunionBtn());

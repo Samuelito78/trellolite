@@ -42,10 +42,9 @@ public class SectionVue extends JPanel {
         repaint();
     }
 
-    public void afficheMembres(){
+    public void afficheMembres(JPanel membreVue){
         removeAll();
-        add(label);
-        label.setText("Membres");
+        add(membreVue);
         revalidate();
         repaint();
     }
@@ -53,7 +52,6 @@ public class SectionVue extends JPanel {
     public void afficheReunions(JPanel reunionVue){
         removeAll();
         add(reunionVue);
-        System.out.println("ok");
         revalidate();
         repaint();
     }
