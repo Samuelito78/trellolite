@@ -1,5 +1,4 @@
 package trellolite.modeles;
-import java.util.ArrayList;
 
 /**
  * La classe Etiquette représente une étiquette dans le système Trellolite.

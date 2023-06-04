@@ -60,7 +60,6 @@ public class ProjetControleur {
 
 
         this.vue = new ProjetVue(projectButton);
-        this.vue.setProjet(projet);
 
         popupMenuProjet = new JPopupMenu();
 

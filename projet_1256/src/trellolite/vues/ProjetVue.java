@@ -3,7 +3,6 @@ package trellolite.vues;
 import trellolite.modeles.Projet;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 /**
@@ -27,14 +26,6 @@ public class ProjetVue extends JPanel {
         add(projectButton);
     }
 
-    /**
-     * Définit le projet associé à la vue.
-     *
-     * @param projet Le projet à afficher.
-     */
-    public void setProjet(Projet projet) {
-        // TODO: Implémenter la logique pour afficher les détails du projet
-    }
 
     /**
      * Définit le texte du bouton représentant le projet.

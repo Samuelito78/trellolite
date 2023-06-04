@@ -1,7 +1,5 @@
 package trellolite.vues;
 
-import trellolite.modeles.Tableau;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;

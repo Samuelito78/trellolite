@@ -1,7 +1,6 @@
 package trellolite.controleurs;
 
 import trellolite.modeles.Projet;
-import trellolite.modeles.Role;
 import trellolite.vues.ParametreVue;
 import trellolite.vues.ProjetVue;
 

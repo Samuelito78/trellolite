@@ -55,7 +55,6 @@ public class NavButtonControleur {
         this.parametreControleur = new ParametreControleur(projet, projetVue);
 
         for (NavButton button : navButtons) {
-            System.out.println(button.getName());
             JButton btn = new JButton(button.getName());
             ImageIcon icon = new ImageIcon(button.getIconURL());
             btn.setIcon(icon);

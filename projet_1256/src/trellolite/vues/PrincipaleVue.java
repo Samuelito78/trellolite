@@ -1,9 +1,6 @@
 package trellolite.vues;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-
-import trellolite.modeles.*;
 import java.awt.*;
 
 /**
@@ -25,21 +22,23 @@ public class PrincipaleVue extends JPanel {
      */
     public PrincipaleVue() {
         // Initialisation des composants
-        sidebar = new JPanel(new BorderLayout());
-        sidebar.setPreferredSize(new Dimension(260, 0));
-        sidebar.setBackground(Color.BLUE);
-
         formPanel = new JPanel(new GridLayout(0, 1));
         nomField = new JTextField(10);
         typeBox = new JComboBox<>(new String[]{ "Petite entreprise", "Ressources humaines", "Opérations", "Ingénierie & informatique", "Marketing", "Vente et gestion de la relation client", "Éducation", "Autre" });
         descriptionArea = new JTextArea();
 
         // Ajout des composants au panneau de formulaire
-        formPanel.add(new JLabel("Nom:"));
+        JLabel nomLabel = new JLabel("Nom du projet");
+        nomLabel.setForeground(Color.white);
+        formPanel.add(nomLabel);
         formPanel.add(nomField);
-        formPanel.add(new JLabel("Type:"));
+        JLabel typeLabel = new JLabel("Type du projet");
+        typeLabel.setForeground(Color.white);
+        formPanel.add(typeLabel);
         formPanel.add(typeBox);
-        formPanel.add(new JLabel("Description:"));
+        JLabel descLabel = new JLabel("Description du projet :");
+        descLabel.setForeground(Color.white);
+        formPanel.add(descLabel);
         formPanel.add(descriptionArea);
     }
 
@@ -78,6 +77,7 @@ public class PrincipaleVue extends JPanel {
     public void showForm(JButton submitButton) {
         this.removeAll();
         formPanel.add(submitButton);
+        formPanel.setBackground(Color.decode("#1F1F1F"));
         this.add(formPanel);
         this.revalidate();
         this.repaint();
@@ -90,7 +90,10 @@ public class PrincipaleVue extends JPanel {
      */
     public void showMainView(JButton monBouton) {
         this.removeAll();
-        this.add(new JLabel("Oups ! Vous n'avez pas encore de projet."));
+        JLabel errorMessage = new JLabel("Oups ! Vous n'avez pas encore de projet.");
+        errorMessage.setForeground(Color.white);
+        this.setBackground(Color.decode("#1F1F1F"));
+        this.add(errorMessage);
         this.add(monBouton);
         this.revalidate();
         this.repaint();

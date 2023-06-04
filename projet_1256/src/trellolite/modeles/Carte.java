@@ -1,7 +1,6 @@
 package trellolite.modeles;
 import java.util.ArrayList;
 import java.util.Date;
-import java.text.SimpleDateFormat;
 /**
  * La classe Carte représente une carte dans le système Trellolite.
  * Une carte est composée d'un nom, d'une description, de dates de début et de fin,
@@ -9,7 +8,7 @@ import java.text.SimpleDateFormat;
  * 
  * @author Clement Cressault
  */
-public class Carte {
+public class Carte  {
 
     //-----------------------------------------
 	// ATTRIBUTS

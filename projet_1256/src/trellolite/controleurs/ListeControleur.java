@@ -15,7 +15,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import trellolite.vues.SectionVue;
-import trellolite.vues.TableauVue;
 
 /**
  * Cette classe est responsable de la gestion des interactions utilisateur
