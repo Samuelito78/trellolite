@@ -3,6 +3,7 @@ package trellolite.controleurs;
 import trellolite.modeles.Carte;
 import trellolite.modeles.Liste;
 import trellolite.modeles.Tableau;
+import trellolite.modeles.Utilisateur;
 import trellolite.vues.ListeVue;
 
 import javax.swing.*;
@@ -13,6 +14,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import trellolite.vues.SectionVue;
+import trellolite.vues.TableauVue;
 
 public class ListeControleur {
     private JButton creeListeBtn;
@@ -20,12 +23,17 @@ public class ListeControleur {
     private JDialog dialog;
     private JDialog dialog2;
     private ArrayList listePanelList;
-
+    private SectionVue sectionVue;
+    private Tableau tableau;
     private String[] couleurs = {"#757575","#7EA6E0","#67AB66","#7EA6E0", "#EA6B66", "#E8A566", "#97D077", "#9D7EE0", "#49618F", "#833551", "#7D4040"};
     private int indexCouleur = 0;
+    private Utilisateur utilisateur;
 
-    public ListeControleur(Tableau tableau) {
+    public ListeControleur(Tableau tableau, SectionVue sectionVue, Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
         this.creeListeBtn = new JButton("Nouvelle liste");
+        this.sectionVue = sectionVue;
+        this.tableau = tableau;
         JButton submitListeBtn = new JButton("Créer la liste");
         JButton returnListeBtn = new JButton("Retour");
         JLabel label = new JLabel("Nom de la liste");
@@ -155,7 +163,7 @@ public class ListeControleur {
 
         indexCouleur++;
         if (indexCouleur >= couleurs.length) {
-            indexCouleur = 0; // Reset color index if we've used all colors
+            indexCouleur = 0;
         }
 
         listePanel.add(carteBtnPanel, BorderLayout.CENTER);
@@ -174,16 +182,22 @@ public class ListeControleur {
         submitCarteBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Carte nouvelleCarte = new Carte(listeVue.getNom());
-                System.out.println("Ajout de "+ nouvelleCarte.getNom()+" dans "+ liste.getNom());
                 liste.ajouterCarte(nouvelleCarte);
 
-                // Créer le nouveau bouton avec le bon style
                 JButton carteBtn = new JButton(nouvelleCarte.getNom());
                 carteBtn.setPreferredSize(new Dimension(Integer.MAX_VALUE, 40));
                 carteBtn.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
                 carteBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
                 carteBtn.setBackground(Color.white);
                 carteBtn.setOpaque(true);
+
+                CarteControleur carteControleur = new CarteControleur(nouvelleCarte, tableau, sectionVue, listeVue, utilisateur);
+
+                carteBtn.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        sectionVue.afficheCarte(carteControleur.getVue());
+                    }
+                });
 
 
                 // Créer un menu contextuel pour chaque carteBtn
@@ -214,10 +228,6 @@ public class ListeControleur {
                     }
                 });
 
-
-
-
-                // Ajouter le bouton à carteBtnPanel plutôt qu'à listePanel
                 carteBtnPanel.add(carteBtn);
 
                 dialog.dispose();

@@ -5,6 +5,7 @@ import javax.swing.border.EmptyBorder;
 import trellolite.modeles.NavBar;
 import trellolite.modeles.NavButton;
 import trellolite.modeles.Projet;
+import trellolite.modeles.Utilisateur;
 import trellolite.vues.NavButtonVue;
 import trellolite.vues.ProjetVue;
 import trellolite.vues.SectionVue;
@@ -20,13 +21,13 @@ public class NavButtonControleur {
     private NavButtonVue navButtonVue;
     private NavBar navBar;
     private SectionVue sectionVue;
-    NavButtonControleur(NavBar navBar, SectionVue sectionVue, Projet projet){
+    NavButtonControleur(NavBar navBar, SectionVue sectionVue, Projet projet, Utilisateur utilisateur){
         this.sectionVue = sectionVue;
         this.navBar = navBar;
         ArrayList<JButton> navButtonsList = new ArrayList<>();
         ArrayList<NavButton> navButtons = navBar.getButtons();
 
-        TableauControleur tableauControleur = new TableauControleur(projet, sectionVue);
+        TableauControleur tableauControleur = new TableauControleur(projet, sectionVue, utilisateur);
         ReunionControleur reunionControleur = new ReunionControleur(projet);
 
         for (NavButton button : navButtons) {
@@ -86,9 +87,7 @@ public class NavButtonControleur {
                         case "Paramètres":
                             sectionVue.afficheParamètres();
                             break;
-                        // Autres cas possibles
                         default:
-                            // Instructions à exécuter si expression ne correspond à aucun des cas précédents
                             break;
                     }
                 }

@@ -26,6 +26,7 @@ public class Projet {
         this.setNom(nom);
         this.setDescription(description);
         this.setType(type);
+        this.utilisateurs = new ArrayList<>();
         this.tableaux = new ArrayList<>();
         this.reunions = new ArrayList<>();
     }

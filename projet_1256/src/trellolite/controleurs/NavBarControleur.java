@@ -2,6 +2,7 @@ package trellolite.controleurs;
 import trellolite.modeles.NavBar;
 import trellolite.modeles.NavButton;
 import trellolite.modeles.Projet;
+import trellolite.modeles.Utilisateur;
 import trellolite.vues.NavBarVue;
 
 import trellolite.vues.PrincipaleVue;
@@ -15,7 +16,7 @@ public class NavBarControleur {
     private NavBarVue navBarVue;
     private ProjetVue projetVue;
     private NavButtonControleur navButtonControleur;
-    public NavBarControleur(ProjetVue projetVue, SectionVue sectionVue, Projet projet){
+    public NavBarControleur(ProjetVue projetVue, SectionVue sectionVue, Projet projet, Utilisateur utilisateur){
         this.projetVue = projetVue;
         navBar = new NavBar();
         NavButton navButton1 = new NavButton("Tableau de bord", "src/trellolite/ressources/images/iconTable.png", true);
@@ -28,7 +29,7 @@ public class NavBarControleur {
         navBar.addButton(navButton3);
         navBar.addButton(navButton4);
         navBar.addButton(navButton5);
-        navButtonControleur = new NavButtonControleur(navBar, sectionVue, projet);
+        navButtonControleur = new NavButtonControleur(navBar, sectionVue, projet, utilisateur);
         this.navBarVue = new NavBarVue(projetVue, navButtonControleur.getVue());
 
     }

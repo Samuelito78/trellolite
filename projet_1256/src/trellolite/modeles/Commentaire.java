@@ -1,13 +1,16 @@
 package trellolite.modeles;
+
+import java.util.Date;
+
 public class Commentaire {
     // Attributs
     Carte carte;
     Utilisateur createurcomm;
     private String contenu;
-    private int date;
+    private Date date;
 
     // Constructeur
-    public Commentaire(Utilisateur createurcomm, String contenu, int date, Carte carte) {
+    public Commentaire(Utilisateur createurcomm, String contenu, Date date, Carte carte) {
         this.setContenu(contenu);
         this.setDate(date);
         this.createurcomm = createurcomm;
@@ -15,6 +18,10 @@ public class Commentaire {
     }
 
     // Getter et Setter pour l'attribut "contenu"
+
+    public Utilisateur getCreateurcomm(){
+        return createurcomm;
+    }
     public String getContenu() {
         return contenu;
     }
@@ -24,11 +31,11 @@ public class Commentaire {
     }
 
     // Getter et Setter pour l'attribut "date"
-    public int getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }

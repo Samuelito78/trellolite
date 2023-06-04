@@ -16,7 +16,6 @@ public class SectionVue extends JPanel {
     public void afficheTableaux(JPanel tableauVue){
         removeAll();
         add(tableauVue);
-        System.out.println("ok");
         revalidate();
         repaint();
     }
@@ -24,7 +23,13 @@ public class SectionVue extends JPanel {
     public void afficheListe(JPanel liste){
         removeAll();
         add(liste);
-        System.out.println("ok");
+        revalidate();
+        repaint();
+    }
+
+    public void afficheCarte(JPanel carte){
+        removeAll();
+        add(carte);
         revalidate();
         repaint();
     }
@@ -60,4 +65,5 @@ public class SectionVue extends JPanel {
         revalidate();
         repaint();
     }
+
 }

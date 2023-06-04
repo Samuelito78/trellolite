@@ -6,13 +6,22 @@ import java.util.ArrayList;
  */
 
 public class Utilisateur {
+	//-----------------------------------------
+	// CONSTRUCTEUR
+	//-----------------------------------------
+	public Utilisateur(int id, String nom, String prenom, String email, String mdp, Role role) {
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.mdp = mdp;
+		this.role = role;
+	}
 	
 	//-----------------------------------------
 	// ATTRIBUTS
 	//-----------------------------------------
 	//
-	ArrayList<Commentaire> commentaire;
-	public ArrayList<Reunion> reunion;
 	private double id;
 	private String nom;
 	private String prenom;
@@ -31,10 +40,10 @@ public class Utilisateur {
         this.setEmail(email);
         this.setMdp(mdp);
         this.setRole(role);
-		this.commentaire = commentaire;
-		this.reunion = reunion;
-    }    
-    
+    }
+
+
+
 	//---------------------------------------------
 	// 			   GETTERS / SETTERS
 	//---------------------------------------------
@@ -86,35 +95,4 @@ public class Utilisateur {
 		this.role = role;
 	}
 
-	
-	public ArrayList<Commentaire> getComm() {
-		return commentaire;
-	}
-
-	public ArrayList<Reunion> getReunion() {
-		return reunion;
-	}
-
-
-
-
-	//---------------------------------------------
-	// 			   		METHODES
-	//---------------------------------------------
-
-	public void ajouterComm(Commentaire n_comm){
-		commentaire.add(n_comm);
-	}
-
-	public void ajouterReunion(Reunion n_reu){
-		reunion.add(n_reu);
-	}
-
-	public void supprComm(Commentaire n_comm){
-		commentaire.remove(n_comm);
-	}
-
-	public void supprReunion(Reunion n_reu){
-		reunion.remove(n_reu);
-	}
 }

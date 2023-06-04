@@ -1,6 +1,7 @@
 package trellolite.modeles;
 import java.util.ArrayList;
-
+import java.util.Date;
+import java.text.SimpleDateFormat;
 /*
  * @auteur Samuel Boix-Segura
  */
@@ -12,11 +13,11 @@ public class Carte {
     ArrayList<Etiquette> etiquettes;
     private String nom;
     private String description;
-    private int datedebut;
-    private int datefin;
+    private Date datedebut;
+    private Date datefin;
 
     // Constructeur
-    public Carte(String nom, String description, int datedebut, int datefin, ArrayList<Commentaire> comm, ArrayList<Etiquette> etiquettes, Liste liste) {
+    public Carte(String nom, String description, Date datedebut, Date datefin, ArrayList<Commentaire> comm, ArrayList<Etiquette> etiquettes, Liste liste) {
         this.setNom(nom);
         this.setDescription(description);
         this.setDatedebut(datedebut);
@@ -28,6 +29,10 @@ public class Carte {
 
     public Carte(String nom){
         this.nom = nom;
+        this.datedebut = new Date();
+        this.datefin = new Date();
+        this.comm = new ArrayList<>();
+        this.etiquettes = new ArrayList<>();
     }
 
     // Getter et Setter pour l'attribut "description"
@@ -40,20 +45,20 @@ public class Carte {
     }
 
     // Getter et Setter pour l'attribut "datedebut"
-    public int getDatedebut() {
+    public Date getDatedebut() {
         return datedebut;
     }
 
-    public void setDatedebut(int datedebut) {
+    public void setDatedebut(Date datedebut) {
         this.datedebut = datedebut;
     }
 
     // Getter et Setter pour l'attribut "datefin"
-    public int getDatefin() {
+    public Date getDatefin() {
         return datefin;
     }
 
-    public void setDatefin(int datefin) {
+    public void setDatefin(Date datefin) {
         this.datefin = datefin;
     }
 

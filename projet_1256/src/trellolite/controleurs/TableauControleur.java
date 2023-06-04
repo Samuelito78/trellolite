@@ -2,6 +2,7 @@ package trellolite.controleurs;
 
 import trellolite.modeles.Projet;
 import trellolite.modeles.Tableau;
+import trellolite.modeles.Utilisateur;
 import trellolite.vues.SectionVue;
 import trellolite.vues.TableauVue;
 
@@ -22,7 +23,7 @@ public class TableauControleur {
     private JDialog dialog;
     private ArrayList<JButton> tableauBtnList;
     private SectionVue sectionVue;
-    public TableauControleur(Projet projet, SectionVue sectionVue){
+    public TableauControleur(Projet projet, SectionVue sectionVue, Utilisateur utilisateur){
         this.creeTableauBtn = new JButton("Nouveau tableau");
         this.submitTableauBtn = new JButton("Créer le tableau");
         this.returnTableauBtn = new JButton("Retour");
@@ -76,7 +77,7 @@ public class TableauControleur {
                     tableauBtn.setOpaque(true);
 
                     // Creation objet type ListeControleur
-                    ListeControleur listeControleur = new ListeControleur(tableau);
+                    ListeControleur listeControleur = new ListeControleur(tableau, sectionVue, utilisateur);
                     // Ecoute de l'événement tableauBtn
                     tableauBtn.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
