@@ -7,6 +7,17 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * La classe TableauVue représente la vue d'un tableau dans l'application.
+ * Cette vue affiche les boutons des tableaux dans un panneau, ainsi qu'un formulaire de création de tableau.
+ * Elle offre des méthodes pour rafraîchir la page avec les boutons des tableaux, afficher le formulaire de création de tableau
+ * et récupérer le nom saisi dans le formulaire.
+ * La vue utilise une couleur d'arrière-plan spécifique.
+ *
+ * TODO : Compléter la documentation pour les méthodes afficheForm(), getNom().
+ *
+ * @auther Samuel Boix-Segura
+ */
 public class TableauVue extends JPanel {
 
     // Les attributs de classe pour le titre et le panneau d'en-tête
@@ -18,7 +29,13 @@ public class TableauVue extends JPanel {
     private JPanel tableauPanel;
 
     private JTextField nomTableauField;
-    // Constructeur de la classe TableauVue
+
+    /**
+     * Constructeur de la classe TableauVue.
+     *
+     * @param creeTableauBtn Le bouton pour créer un nouveau tableau.
+     * @param reunionBtnList La liste des boutons pour les réunions.
+     */
     public TableauVue(JButton creeTableauBtn, ArrayList<JButton> reunionBtnList){
         // Configuration du layout et de la couleur de fond de ce JPanel
         setLayout(new BorderLayout());
@@ -95,6 +112,11 @@ public class TableauVue extends JPanel {
         add(bodyPanel, BorderLayout.CENTER);
     }
 
+    /**
+     * Rafraîchit la page en mettant à jour les boutons des tableaux.
+     *
+     * @param tableauBtnList La liste des boutons des tableaux.
+     */
     public void refreshPage(ArrayList<JButton> tableauBtnList) {
         String subtitleText = (tableauBtnList != null && tableauBtnList.size() > 0) ? "VOS TABLEAUX" : "VOUS N'AVEZ AUCUN TABLEAU";
         this.subttitlePanel.setText(subtitleText);
@@ -116,12 +138,13 @@ public class TableauVue extends JPanel {
         tableauPanel.repaint();
     }
 
-
-
-
-
-
-
+    /**
+     * Affiche le formulaire de création de tableau dans une JDialog modale.
+     *
+     * @param submitTableauBtn Le bouton de soumission du formulaire.
+     * @param returnTableauBtn Le bouton de retour du formulaire.
+     * @param dialog           La JDialog utilisée pour afficher le formulaire.
+     */
     public void afficheForm(JButton submitTableauBtn, JButton returnTableauBtn, JDialog dialog){
         // Création de la JDialog
         dialog.setModal(true);
@@ -188,8 +211,12 @@ public class TableauVue extends JPanel {
         dialog.setVisible(true);
     }
 
+    /**
+     * Récupère le nom saisi dans le formulaire de création de tableau.
+     *
+     * @return Le nom saisi dans le champ de texte du formulaire.
+     */
     public String getNom() {
         return this.nomTableauField.getText();
     }
 }
-

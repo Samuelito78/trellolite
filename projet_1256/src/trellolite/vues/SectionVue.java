@@ -6,62 +6,91 @@ import java.awt.*;
 
 public class SectionVue extends JPanel {
     private JLabel label;
-    public SectionVue(){
+
+    /**
+     * Constructeur de la classe SectionVue. Initialise le layout, la couleur de fond et la bordure.
+     */
+    public SectionVue() {
         setLayout(new BorderLayout());
         setBackground(Color.decode("#1F1F1F"));
         setBorder(new EmptyBorder(0, 100, 0, 100));
         this.label = new JLabel();
     }
 
-    public void afficheTableaux(JPanel tableauVue){
+    /**
+     * Affiche la vue d'un tableau.
+     * @param tableauVue le JPanel représentant la vue d'un tableau.
+     */
+    public void afficheTableaux(JPanel tableauVue) {
         removeAll();
         add(tableauVue);
         revalidate();
         repaint();
     }
 
-    public void afficheListe(JPanel liste){
+    /**
+     * Affiche la vue d'une liste.
+     * @param liste le JPanel représentant la vue d'une liste.
+     */
+    public void afficheListe(JPanel liste) {
         removeAll();
         add(liste);
         revalidate();
         repaint();
     }
 
-    public void afficheCarte(JPanel carte){
+    /**
+     * Affiche la vue d'une carte.
+     * @param carte le JPanel représentant la vue d'une carte.
+     */
+    public void afficheCarte(JPanel carte) {
         removeAll();
         add(carte);
         revalidate();
         repaint();
     }
 
-    public void afficheActivites(){
+    /**
+     * Affiche la vue des activités.
+     */
+    public void afficheActivites() {
         removeAll();
         add(label);
-        label.setText("Reunions");
+        label.setText("Réunions");
         revalidate();
         repaint();
     }
 
-    public void afficheMembres(JPanel membreVue){
+    /**
+     * Affiche la vue des membres.
+     * @param membreVue le JPanel représentant la vue des membres.
+     */
+    public void afficheMembres(JPanel membreVue) {
         removeAll();
         add(membreVue);
         revalidate();
         repaint();
     }
 
-    public void afficheReunions(JPanel reunionVue){
+    /**
+     * Affiche la vue des réunions.
+     * @param reunionVue le JPanel représentant la vue des réunions.
+     */
+    public void afficheReunions(JPanel reunionVue) {
         removeAll();
         add(reunionVue);
         revalidate();
         repaint();
     }
 
-    public void afficheParamètres(){
+    /**
+     * Affiche la vue des paramètres.
+     */
+    public void afficheParamètres() {
         removeAll();
         add(label);
         label.setText("Paramètres");
         revalidate();
         repaint();
     }
-
 }
