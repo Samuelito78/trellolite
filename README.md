@@ -12,7 +12,3 @@ Le projet comporte une interface utilisateur qui permet aux utilisateurs de sais
 
 L'application suit l'architecture Model-View-Controller (MVC). Les modèles définissent les objets que l'application peut créer et manipuler. Les vues définissent l'interface utilisateur de l'application. Les contrôleurs orchestrent l'interaction entre les modèles et les vues.
 
-## Comment exécuter l'application
-
-(Cette section devrait contenir des instructions sur la façon de compiler et d'exécuter l'application. Comme je n'ai pas pu examiner tous les fichiers, je ne peux pas fournir ces instructions à ce stade.)
-
