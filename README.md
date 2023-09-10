@@ -1,6 +1,6 @@
 # Trellolite
 
-Trellolite est une application qui imite certaines des fonctionnalités de Trello, un outil populaire de gestion de projets. Ce projet a été réalisé par Nawfel Kerarsi, Samuel Boix-Segura, Clement Cressault, et Mohamed Telli.
+Trellolite est une application qui imite certaines des fonctionnalités de Trello, un outil populaire de gestion de projets. Ce projet a été réalisé par <a href="https://github.com/nawfelkerarsi" target="_blank">Nawfel Kerarsi</a>, <a href="https://github.com/Samuelito78" target="_blank">Samuel Boix-Segura</a>, Clement Cressault, et Mohamed Telli.
 
 ## Fonctionnalités
 
